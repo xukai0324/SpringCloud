@@ -1,6 +1,6 @@
 myauth:
-  user: #自定义用户密码，下面注册中心地址会用到
-    name: xk
+  eureka: #自定义用户密码，下面注册中心地址会用到
+    username: xk
     password: xk123
 eureka:
   client:
@@ -8,7 +8,8 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 10 #心跳时间
     lease-expiration-duration-in-seconds: 30 #发呆时间
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value} #服务ID
+    perfer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id}:${random.value}
 security:
   user: #设置配置中心用户密码
     name: xk
@@ -19,7 +20,7 @@ spring:
   application:
     name: config #配置中心应用名
   profiles:
-    active: dev
+    active: pro
 
 ---
 spring:
@@ -43,7 +44,7 @@ spring:
       server:
         git:
           clone-on-start: true
-          uri: https://github.com/xukai0324/SpringCloud
+          uri: https://github.com/xukai0324/SpringCloud/
           search-paths: config
           username: xukai0324
           password: XK19930324

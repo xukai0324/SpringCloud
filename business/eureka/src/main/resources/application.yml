@@ -7,11 +7,12 @@ spring:
     active: local #当前版本
 eureka:
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value} #配置应用注册的ID
+    instance-id: ${spring.application.name}:${spring.application.instance_id}:${random.value} #配置应用注册的ID
   client:
     service-url:
       defaultZone: http://localhost:16001/eureka/ #配置注册中心地址
-    fetch-registry: false #不注册自身
+    fetch-registry: false
+    register-with-eureka: false #不注册自身
 security:
   basic:
     enabled: true
