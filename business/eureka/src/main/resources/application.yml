@@ -1,0 +1,20 @@
+server:
+  port: 16001 #配置服务监听端口
+spring:
+  application:
+    name: registry #注册中心应用名
+  profiles:
+    active: local #当前版本
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value} #配置应用注册的ID
+  client:
+    service-url:
+      defaultZone: http://localhost:16001/eureka/ #配置注册中心地址
+    fetch-registry: false #不注册自身
+security:
+  basic:
+    enabled: true
+  user:
+    name: xk
+    password: xk123

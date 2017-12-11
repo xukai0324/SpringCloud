@@ -1,0 +1,53 @@
+myauth:
+  user: #自定义用户密码，下面注册中心地址会用到
+    name: xk
+    password: xk123
+eureka:
+  client:
+    registry-fetch-interval-seconds: 10 #默认30秒
+  instance:
+    lease-renewal-interval-in-seconds: 10 #心跳时间
+    lease-expiration-duration-in-seconds: 30 #发呆时间
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value} #服务ID
+security:
+  user: #设置配置中心用户密码
+    name: xk
+    password: xk123
+server:
+  port: 16002 #服务端口配置
+spring:
+  application:
+    name: config #配置中心应用名
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+eureka:
+  instance:
+    service-url:
+      defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/ #注册中心地址
+
+
+---
+spring:
+  profiles: pro
+  cloud:
+    config:
+      server:
+        git:
+          clone-on-start: true
+          uri: https://github.com/xukai0324/SpringCloud
+          search-paths: config
+          username: xukai0324
+          password: XK19930324
+eureka:
+  instance:
+    service-url:
+      defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/ #注册中心地址
