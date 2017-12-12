@@ -8,8 +8,6 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 10 #心跳时间
     lease-expiration-duration-in-seconds: 30 #发呆时间
-    perfer-ip-address: true
-    instance-id: ${spring.application.name}:${spring.application.instance_id}:${random.value}
 security:
   user: #设置配置中心用户密码
     name: xk
@@ -21,7 +19,8 @@ spring:
     name: config #配置中心应用名
   profiles:
     active: pro
-
+logging:
+  level: debug
 ---
 spring:
   profiles: dev
@@ -31,7 +30,7 @@ spring:
         native:
           search-locations: classpath:/config
 eureka:
-  instance:
+  client:
     service-url:
       defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/ #注册中心地址
 
@@ -49,6 +48,6 @@ spring:
           username: xukai0324
           password: XK19930324
 eureka:
-  instance:
+  client:
     service-url:
       defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/ #注册中心地址
