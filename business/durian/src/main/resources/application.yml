@@ -1,0 +1,26 @@
+server:
+  port: 16011
+spring:
+  application:
+    name: durian
+  cloud:
+    config:
+      name: ${spring.application.name}
+      discovery:
+        enabled: true
+        serviceId: config
+      fail-fast: true
+      enabled: true
+myauth:
+  eureka: #自定义用户密码，下面注册中心地址会用到
+    username: xk
+    password: xk123
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/ #注册中心地址
+    registry-fetch-interval-seconds: 10
+  instance:
+    lease-renewal-interval-in-seconds: 10 #心跳时间
+    lease-expiration-duration-in-seconds: 30 #发呆时间
+    prefer-ip-address: true

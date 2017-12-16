@@ -1,0 +1,21 @@
+myauth:
+  eureka: #自定义用户密码，下面注册中心地址会用到
+    username: xk
+    password: xk123
+server:
+  port: 16003
+spring:
+  application:
+    name: turbine
+security:
+  basic:
+    enabled: false
+turbine:
+  aggregator:
+    clusterConfig: default
+  app-config: platform,durian
+  cluster-name-expression: "'default'"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/ #注册中心地址
