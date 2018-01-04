@@ -1,6 +1,7 @@
 package com.xk.user;
 
 import com.xk.platform.user.api.UserApi;
+import com.xk.platform.user.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,8 @@ public class TestController {
 
 
     @RequestMapping(value = "/test")
-    public boolean login() {
-        return userApi.login();
+    public boolean login() throws Exception{
+        UserDto userDto = new UserDto();
+        return userApi.login(userDto);
     }
 }

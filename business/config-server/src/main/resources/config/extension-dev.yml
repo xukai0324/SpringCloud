@@ -16,3 +16,10 @@ spring:
 mybatis:
   typeAliasesPackage: com.xk.extension.**.entity
   mapperLocations: classpath:mapper/**/*.xml
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: xk
+    password: xk123
+    virtual-host: /xk
