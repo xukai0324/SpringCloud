@@ -1,0 +1,3 @@
+com\xk\PlatformConstant.class
+com\xk\user\api\UserApi.class
+com\xk\user\hystrix\UserHystrix.class

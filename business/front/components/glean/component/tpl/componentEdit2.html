@@ -1,0 +1,73 @@
+
+<div class="index_con produce_center">
+    <div class="index_list" >
+        <div class="index_tit"><h6>组件收集</h6></div>
+        <ng-form name="deployEnvSaveForm">
+            <ul class="list_ul">
+                <li><span>组件：</span></li>
+                <li>
+                    <div class="ui-select">
+                        <code-type class="seletc_bor" base-code="projectList" ng-model='component.componentNameId' ng-change="OnSelect()" ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </li>
+
+                <li><span>大版本号：</span></li>
+                <li>
+                    <div class="ui-select">
+                        <!--<code-type class="seletc_bor" base-code="component.componentNameId" ng-model='component.versionId' ng-disabled="false" is-fuzzy="true"></code-type>-->
+                        <select class="seletc_bor" ng-model='component.versionId' ng-options="x.id as x.codeName for x in versionList">
+                            <option>---请选择---</option>
+                        </select>
+                    </div>
+                </li>
+
+                <li><span>小版本：</span></li>
+                <li class="">
+                    <input mc-placeholder="需要1~5位字符组成" type="text" class="fl" ng-model="component.subVersion" required ng-pattern="{{namePattern}}"  warn-text="{ErrPattern:'需要1~5位字符组成'}" maxlength="20" />
+                </li>
+
+                <li><span>类型：</span></li>
+                <li class="">
+                    <div class="ui-select">
+                        <code-type class="seletc_bor" base-code="copType" ng-model='component.codeTypeId' ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </li>
+                <li><span>标签：</span></li>
+                <li class="">
+                    <div class="ui-select">
+                        <code-type class="seletc_bor" base-code="componentLabelType" ng-model='component.labelId' ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </li>
+                <li><span>备注：</span></li>
+                <li class="">
+                    <input type="text"class="form-control" class="fl" ng-model="component.remark"/>
+                </li>
+                <li><span>描述：</span></li>
+                <li class="">
+                    <textarea class="form-control"  class="fl" ng-model="component.descript"></textarea>
+                </li>
+                <li><span></span></li>
+                <li class="">
+
+                </li>
+                <li><span></span></li>
+                <li class="">
+
+                </li>
+                <!-- <li><span>CodeId：</span></li>
+                <li class="">
+                    <code-type class="seletc_bor" base-code="codeCode" ng-model='component.codeCodeId' ng-disabled="false" is-fuzzy="true"></code-type>
+                </li>-->
+            </ul>
+
+            <!--按钮-->
+            <div class="index_btn1">
+                <button  class="submit" ng-disabled="deployEnvSaveDisableFlag" ng-click="updateComponent()">确 定</button>
+                <span class="edit" ng-click="exit()">退 出</span>
+            </div>
+        </ng-form>
+    </div>
+    <div data-ng-include ="'components/glean/component/tpl/alertLayer.html'"></div>
+</div>
+
+

@@ -1,0 +1,104 @@
+<!--菜单维护-->
+<div class="index_con produce_center">
+    <div class="index_list" >
+        <div class="index_tit"><h6>个人信息编辑</h6></div>
+            <ng-form name="techPersonSaveForm">
+                <ul class="list_ul">
+                    <li><span>员工姓名：</span></li>
+                    <li class="font_left">
+                        <span class="f1" ng-model ="gleanTechPersonInfoDto.userName" >{{gleanTechPersonInfoDto.userName}} </span>
+                    </li>
+
+                    <li><span>职位：</span></li>
+                    <li class="font_left">
+                        <span class="f1" ng-model ="gleanTechPersonInfoDto.position" >{{gleanTechPersonInfoDto.position}} </span>
+                    </li>
+
+                    <li><span>所属部门：</span></li>
+                    <li class="font_left">
+                        <span class="f1" ng-model ="gleanTechPersonInfoDto.deptName" >{{gleanTechPersonInfoDto.deptName}} </span>
+                    </li>
+
+                    <li><span>所属阿米巴：</span></li>
+                    <li class="font_left">
+                        <span class="f1" ng-model ="gleanTechPersonInfoDto.amoebaName" >{{gleanTechPersonInfoDto.amoebaName}} </span>
+                    </li>
+
+                    </ul>
+
+                <div class="index_list index_list_table">
+                    <div class="index_tit">
+                        <h6 class="fl">掌握技能</h6>
+                    </div>
+                    <table>
+                        <tr>
+                            <td width="20%">（偏领域）</td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <span ng-repeat="fieldSkill in gleanTechDefaultDto.fieldSkills">
+                                            <input id="{{fieldSkill.codeName}}-{{fieldSkill.codeCode}}" type="checkbox" name="{{fieldSkill.codeName}}" value="{{fieldSkill.codeCode}}"
+                                                   ng-click="updateSelection($event,fieldSkill.codeType,fieldSkill.codeCode)" ng-checked="isChecked('{{fieldSkill}}')" />
+                                            <label for="{{fieldSkill.codeName}}-{{fieldSkill.codeCode}}">{{fieldSkill.codeName}}</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="20%">前端</td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <span ng-repeat="frontSkill in gleanTechDefaultDto.frontSkills">
+                                            <input id="{{frontSkill.codeName}}-{{frontSkill.codeCode}}" type="checkbox" name="{{frontSkill.codeName}}" value="{{frontSkill.codeCode}}"
+                                                   ng-checked="isChecked('{{frontSkill}}')" />
+                                            <label for="{{frontSkill.codeName}}-{{frontSkill.codeCode}}">{{frontSkill.codeName}}</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="20%">后端</td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <span ng-repeat="backSkill in gleanTechDefaultDto.backSkills">
+                                            <input id="{{backSkill.codeName}}-{{backSkill.codeCode}}" type="checkbox" name="{{backSkill.codeName}}" value="{{backSkill.codeCode}}"
+                                                   ng-checked="isChecked('{{backSkill}}')" />
+                                            <label for="{{backSkill.codeName}}-{{backSkill.codeCode}}">{{backSkill.codeName}}</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="20%">其他</td>
+                            <td>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <span ng-repeat="otherSkill in gleanTechDefaultDto.otherSkills">
+                                            <input id="{{otherSkill.codeName}}-{{otherSkill.codeCode}}" type="checkbox" name="{{otherSkill.codeName}}" value="{{otherSkill.codeCode}}"
+                                                   ng-checked="isChecked('{{otherSkill}}')" />
+                                            <label for="{{otherSkill.codeName}}-{{otherSkill.codeCode}}">{{otherSkill.codeName}}</label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                    <!--按钮-->
+                <div class="index_btn1">
+                    <button  class="submit" ng-disabled="menuSaveDisableFlag" ng-click="techPersonSave()">确 定</button>
+                    <span class="edit" ng-click="exit()">退 出</span>
+                </div>
+            </ng-form>
+    </div>
+    <div data-ng-include ="'components/glean/techPerson/tpl/techPersonAlertLayer.html'"></div>
+</div>

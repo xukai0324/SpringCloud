@@ -1,0 +1,60 @@
+<div class="index_con" >
+    <!--菜单列表-->
+    <div class="index_list">
+        <div class="index_tit"><h6>菜单查询</h6></div>
+        <ul class="list_ul list_ul_bor">
+            <li><span>名称：</span></li>
+            <li><input type="text" class="fl" ng-model="parentMenuQueryCondition.name"></li>
+
+           <!-- <li><span>类型：</span></li>
+            <li>
+                &lt;!&ndash;<input type="text" class="fl" ng-model="menuQueryCondition.actionType">&ndash;&gt;
+                <select class="form-control" ng-model="parentMenuQueryCondition.actionType" ng-options="x.id as x.typeName for x in queryMenuTypeList">
+                    <option value="">&#45;&#45;请选择&#45;&#45;</option>
+                </select>
+            </li>-->
+        </ul>
+        <div class="pending_btn">
+            <div class="pending_btn1">
+                <span class="a_search" ng-click="menuPageQuery()">搜索</span>
+                <span class="a_reset" ng-click="menuPageReset()">重置</span>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="index_list index_list_table">
+            <div class="index_tit">
+                <h6 class="fl">查询结果</h6>
+            </div>
+            <table class="table">
+                <th>菜单名称</th>
+                <th>菜单路径</th>
+                <th>菜单类型</th>
+                <th>菜单级别</th>
+                <th>操作</th>
+                <tr ng-repeat="m in parentMenuListData">
+                    <td ng-bind="m.menuCName"></td>
+                    <td ng-bind="m.actionURL"></td>
+                    <td ng-if="m.isLeaf=='0'">父菜单</td>
+                    <td ng-if="m.isLeaf=='1'">子菜单</td>
+                    <td ng-bind="m.menuLevel"></td>
+                    <td class="t_last">
+                        <a ng-click="menuView(m.id)">查看</a>
+                        <a ng-click="menuUpdate(m.id)"> | 修改</a>
+                        <a ng-click="menuDel(m.id)"> | 删除</a>
+                        <!--<a ng-if="m.isLeaf=='0'" ng-click="openChildMenu(m)"> | 添加子菜单</a>-->
+                    </td>
+                </tr>
+            </table>
+            <div class="index_page">
+                <tm-pagination conf="paginationConf"></tm-pagination>
+            </div>
+        </div>
+        <!--按钮-->
+        <div class="index_btn1 btn_move_left">
+            <span class="creat" ng-click="menuUpdate('-1')">新增菜单</span>
+           <!-- <span class="edit" ng-click="exit()">退 出</span>-->
+        </div>
+    </div>
+</div>

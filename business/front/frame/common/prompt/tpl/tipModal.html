@@ -1,0 +1,49 @@
+<!--
+<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body">
+    <h3 class="modal-title">{{content}}</h3>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div class="pull-right">
+            <button class="btn btn-primary " type="button" ng-click="cancel()">确定</button>
+        </div>
+
+    </div>
+</div>-->
+<!--<div class="tip_success_info tip_common">
+    <div class="remove_header">
+        <span>{{title}}</span>
+        <a href="javascript:void(0)"><i ng-click="cancel()"></i></a>
+    </div>
+    <div class="info_container">
+        <i class="tip_1"></i>
+        <span>{{content}}</span>
+    </div>
+    <div class="remove_button">
+        <button class="button_sure" ng-click="ok()">确 定</button>
+    </div>
+
+</div>-->
+
+<div class="mask zIndex"></div>
+<div class="tip_success_info tip_common">
+    <div class="remove_header">
+        <span>{{title}}</span>
+        <a href="javascript:void(0)"><i ng-click="cancel()"></i></a>
+    </div>
+    <div class="info_container">
+        <i class="tip_2"></i>
+        <!--<span ng-bind="content"></span>-->
+        <!--<span ng-repeat="cont in content track by $index">{{cont}}</span>-->
+        <ul style="height:103px;width:253px;overflow:auto;padding-top: 37px;padding-left: 0;">
+            <li ng-repeat="cont in content track by $index" style="font-size: 16px;">{{cont}}</li>
+        </ul>
+    </div>
+    <div class="remove_button">
+        <button class="button_sure" ng-click="ok()">返 回</button>
+    </div>
+</div>
+

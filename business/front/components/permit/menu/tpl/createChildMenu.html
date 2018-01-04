@@ -1,0 +1,25 @@
+<div class="index_con" >
+    <!--增添子菜单-->
+    <div class="index_list">
+        <div class="index_tit"><h6>增添子菜单</h6></div>
+        <ng-form name="childMenuSaveForm">
+            <ul class="list_ul">
+                <li><span>actionURL：</span></li>
+                <li><input type="text" class="fl" ng-model ="childMenu.actionURL" maxlength="20" /></li>
+                <li><span>菜单名称：</span></li>
+                <li><input type="text" class="fl" ng-model ="childMenu.menuCName" maxlength="20" /></li>
+                <li><span>展示顺序：</span></li>
+                <li><input type="text" class="fl" ng-model ="childMenu.displayNo" maxlength="20" /></li>
+                <li><span>图示：</span></li>
+                <li><input type="text" class="fl" ng-model ="childMenu.image" maxlength="20" /></li>
+                <li><span>跳转目标：</span></li>
+                <li><input type="text" class="fl" ng-model ="childMenu.target" maxlength="20" /></li>
+            </ul>
+            <!--按钮-->
+            <div class="index_btn1">
+                <span class="creat" ng-click="insertChildMenu()">保存</span>
+                <span class="edit" ng-click="exit()">退 出</span>
+            </div>
+        </ng-form>
+    </div>
+</div>

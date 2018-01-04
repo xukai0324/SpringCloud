@@ -1,0 +1,121 @@
+<div class="index_con" >
+    <!--用户查询-->
+    <div class="index_list">
+        <div class="index_tit"><h6>部署环境查询</h6></div>
+        <ul class="list_ul list_ul_bor">
+            <li><span>操作系统名称：</span></li>
+            <li>
+                <div class="ui-select">
+                    <code-type ng-required="true" class="seletc_bor" base-code="serverNameId" ng-model="deployEnvQueryCondition.serverNameId" ng-disabled="false" is-fuzzy="true"></code-type>
+                </div>
+            </li>
+
+            <li><span>中间件名称：</span></li>
+            <li>
+                <div class="ui-select">
+                    <code-type ng-required="true" class="seletc_bor" base-code="softwareNameId" ng-model="deployEnvQueryCondition.softwareNameId" ng-disabled="false" is-fuzzy="true"></code-type>
+                </div>
+            </li>
+
+            <li><span>所属项目：</span></li>
+            <li>
+                <div class="ui-select">
+                    <code-type ng-required="true" class="seletc_bor" base-code="projectList" ng-model="deployEnvQueryCondition.projectId" ng-disabled="false" is-fuzzy="true"></code-type>
+                </div>
+            </li>
+        </ul>
+        <div class="pending_btn">
+            <div class="pending_btn1">
+                <span class="a_search" ng-click="deployEnvList()">搜索</span>
+                <span class="a_reset" ng-click="deployEnvPageReset()">重置</span>
+            </div>
+        </div>
+    </div>
+    <!--搜索结果-->
+    <div class="index_list index_list_table">
+        <div class="index_tit">
+            <h6 class="fl">搜索结果</h6>
+        </div>
+        <!--<table class="table table-striped table-bordered table-hover">-->
+        <table class="table">
+            <th class="t_first" ng-click="resultSort(0);col='projectName';desc0=!desc0;desc=desc0">
+                所属项目
+                <span class="span_sort">
+                    <div class="sort_up" ng-class="{false:'sort_up_click',true:''}[desc0]"></div>
+                    <div class="sort_down" ng-class="{false:'',true:'sort_down_click'}[desc0]"></div>
+                </span>
+            </th>
+            <th class="t_first" ng-click="resultSort(1);col='serverName';desc1=!desc1;desc=desc1">
+                操作系统名称
+                <span class="span_sort">
+                    <div class="sort_up" ng-class="{false:'sort_up_click',true:''}[desc1]"></div>
+                    <div class="sort_down" ng-class="{false:'',true:'sort_down_click'}[desc1]"></div>
+                </span>
+            </th>
+            <th ng-click="resultSort(2);col='serverVersion';desc2=!desc2;desc=desc2">
+                服务器版本
+                <span class="span_sort">
+                    <div class="sort_up" ng-class="{false:'sort_up_click',true:''}[desc2]"></div>
+                    <div class="sort_down" ng-class="{false:'',true:'sort_down_click'}[desc2]"></div>
+                </span>
+            </th>
+            <th ng-click="resultSort(3);col='softwareName';desc3=!desc3;desc=desc3">
+                中间件名称
+                <span class="span_sort">
+                    <div class="sort_up" ng-class="{false:'sort_up_click',true:''}[desc3]"></div>
+                    <div class="sort_down" ng-class="{false:'',true:'sort_down_click'}[desc3]"></div>
+                </span>
+            </th>
+            <th ng-click="resultSort(4);col='softwareVersion';desc4=!desc4;desc=desc4">
+                中间件版本
+                <span class="span_sort">
+                    <div class="sort_up" ng-class="{false:'sort_up_click',true:''}[desc4]"></div>
+                    <div class="sort_down" ng-class="{false:'',true:'sort_down_click'}[desc4]"></div>
+                </span>
+            </th>
+            <th ng-click="resultSort(5);col='softwareType';desc5=!desc5;desc=desc5">
+                中间件类型
+                <span class="span_sort">
+                    <div class="sort_up" ng-class="{false:'sort_up_click',true:''}[desc5]"></div>
+                    <div class="sort_down" ng-class="{false:'',true:'sort_down_click'}[desc5]"></div>
+                </span>
+            </th>
+
+            <th ng-click="resultSort(6);col='updateTime';desc6=!desc6;desc=desc6">
+                操作日期
+                <span class="span_sort">
+                    <div class="sort_up" ng-class="{false:'sort_up_click',true:''}[desc6]"></div>
+                    <div class="sort_down" ng-class="{false:'',true:'sort_down_click'}[desc6]"></div>
+                </span>
+            </th>
+
+            <th class="t_last t_last1">操作</th>
+
+            <tr ng-repeat="d in deployEnvListData|orderBy:col:desc">
+                <td class="t_first" ng-bind="d.projectName"></td>
+                <td ng-bind="d.serverName"></td>
+                <td ng-bind="d.serverVersion"></td>
+                <td ng-bind="d.softwareName"></td>
+                <td ng-bind="d.softwareVersion"></td>
+                <td ng-bind="d.softwareType"></td>
+                <td ng-bind="d.updateTime | date:'yyyy-MM-dd HH:mm:ss'"></td>
+                <td class="t_last">
+                    <a ng-click="deployEnvView(d.id)">查看</a>
+                    <a ng-click="deployEnvEdit(d.id)"> | 修改</a>
+                    <a ng-click="deployEnvDel(d.id)"> | 删除</a>
+                </td>
+            </tr>
+        </table>
+        <div class="index_page">
+            <tm-pagination conf="paginationConf"></tm-pagination>
+        </div>
+
+    </div>
+
+    <!--按钮-->
+    <div class="index_btn1 btn_move_left">
+        <span class="creat" ng-click="deployEnvEdit('')">新增</span>
+        <span class="edit" ng-click="exit()">退 出</span>
+    </div>
+    <div data-ng-include ="'components/glean/deployEnv/tpl/alertLayer.html'"></div>
+</div>

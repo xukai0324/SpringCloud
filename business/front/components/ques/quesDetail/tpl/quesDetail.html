@@ -1,0 +1,302 @@
+<br/>
+<div class="container body">
+    <div class="index_list">
+        <div class="index_tit">
+            <span ng-bind="QuesDetailMainDto.quesProblemDto.pbTitle"></span>【问题分数：<span ng-bind="QuesDetailMainDto.quesProblemDto.pbScore"></span>分】
+            <button type="submit" class="btn btn-success" style="float: right" ng-click="goQuesMain()">返回</button>
+        </div>
+        <!--上方为外侧框框-->
+            <ul class="list_ul">
+                <div style="width:300px;float: left;">
+                    <div class="col-xs-12 profile_details">
+                        <div class="well profile_view">
+                            <div class="col-sm-12">
+                                <h4 class="brief"><i>提问人</i></h4>
+                                <div class="left col-xs-7">
+                                    <table>
+                                        <tr>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                <h2 ng-bind="QuesDetailMainDto.quesUserName"></h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                <p><strong>部门: </strong><span ng-bind="QuesDetailMainDto.quesDepartMent" style="color:#5A5AAD;"></span></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                积分:<span ng-bind="QuesDetailMainDto.quesMarkNum" style="color:#5A5AAD;"></span>
+                                            </td>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                <i class="fa fa-database"></i>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="right col-xs-5 text-center">
+                                    <img src="images/user.jpg" alt="" class="img-circle img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom text-center">
+                                <div class="col-xs-12 col-sm-6 emphasis">
+                                    <p class="ratings">
+                                        <a>4.0</a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star-o"></span></a>
+                                    </p>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 emphasis">
+                                    <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
+                                    </i> <i class="fa fa-comments-o"></i>微信</button>
+                                    <button type="button" class="btn btn-primary btn-xs">
+                                        <i class="fa fa-user"> </i> QQ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--此处为问题框框-->
+                <div style="width:650px;float: left;">
+                    <p ng-repeat="c in QuesDetailMainDto.quesDetailDto|orderBy:col:desc">
+                        <span>发表于：</span><span ng-bind="c.createTime | date:'yyyy-MM-dd HH:mm:ss'"/><span style="float: right;color:#F00;">楼主</span>
+                        <textarea style="resize:none;width:650px;height: 200px" readonly="readonly" ng-model="c.pbContent"></textarea>
+                    </p>
+                </div>
+            </ul>
+
+            <ul class="list_ul" ng-style="{'background-color':(c.answerState==0)?'#ffdd5e':''}" ng-repeat="c in QuesDetailMainDto.answerDtos|orderBy:'pbNum'">
+                <div style="width:300px;float: left;">
+                    <div class="col-xs-12 profile_details">
+                        <div class="well profile_view">
+                            <div class="col-sm-12">
+                                <h4 class="brief"><i>回复人</i></h4>
+                                <div class="left col-xs-7">
+                                    <table>
+                                        <tr>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                <h2 ng-bind="c.answerUserName"></h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                <p><strong>部门: </strong><span ng-bind="c.answerDepartMent" style="color:#5A5AAD;"></span></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                积分:<span ng-bind="c.answerMarkNum" style="color:#5A5AAD;"></span>
+                                            </td>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                <i class="fa fa-database"></i>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="right col-xs-5 text-center">
+                                    <img src="images/user.jpg" alt="" class="img-circle img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom text-center">
+                                <div class="col-xs-12 col-sm-6 emphasis">
+                                    <p class="ratings">
+                                        <a>4.0</a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star-o"></span></a>
+                                    </p>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 emphasis">
+                                    <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
+                                    </i> <i class="fa fa-comments-o"></i>微信</button>
+                                    <button type="button" class="btn btn-primary btn-xs">
+                                        <i class="fa fa-user"> </i> QQ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--此处为回复框框-->
+                <div style="width:650px;float: left;">
+                    <span>回复<span style="color:#F00; font-weight:bold" ng-if="c.pbAnsNum == 0">楼主</span><span style="color:#F00; font-weight:bold" ng-if="c.pbAnsNum != 0" ng-bind="c.toName"></span>于：</span><span ng-bind="c.createTime | date:'yyyy-MM-dd HH:mm:ss'"/>
+                    <span ng-if="c.pbNum == 1"><span style="float: right;color:#F00;">沙发</span></span>
+                    <span ng-if="c.pbNum == 2"><span style="float: right;color:#F00;">板凳</span></span>
+                    <span ng-if="c.pbNum > 2"><span style="float: right;color:#F00;" ng-bind="c.pbNum"></span><span style="float: right;color:#F00;">F</span></span>
+                    <div style="width:645px">
+                        <textarea style="resize:none;width:650px;" readonly="readonly" ng-if="c.pbAnsNum != 0" ng-bind="c.toMailContent"></textarea>
+                        <div style="width:600px;margin: auto" ng-bind="c.answerCon"></div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-xs" style="float: right" ng-click="setReplyPeople(c.fromId,c.answerUserName,c.pbNum)">回复</button>
+                <span ng-if="QuesDetailMainDto.isMyQues == true" style="float: right">
+                    <button type="button" class="btn btn-warning btn-xs" ng-click="acceptAnsw(QuesDetailMainDto.quesProblemDto.id,c.answerId,c.fromId)">采纳</button>
+                </span>
+            </ul>
+
+            <ul class="list_ul">
+                <!--此处为回答的个人信息-->
+                <div style="width:300px;float: left;">
+                    <div class="col-xs-12 profile_details">
+                        <div class="well profile_view">
+                            <div class="col-sm-12">
+                                <h4 class="brief"><i>个人信息</i></h4>
+                                <div class="left col-xs-7">
+                                    <table>
+                                        <tr>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                <h2 ng-bind="QuesDetailMainDto.userName"></h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                <p><strong>部门: </strong><span ng-bind="QuesDetailMainDto.userDepartMent" style="color:#5A5AAD;"></span></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                积分:<span ng-bind="QuesDetailMainDto.userMarkNum" style="color:#5A5AAD;"></span>
+                                            </td>
+                                            <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                                <i class="fa fa-database"></i>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="right col-xs-5 text-center">
+                                    <img src="images/user.jpg" alt="" class="img-circle img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom text-center">
+                                <div class="col-xs-12 col-sm-6 emphasis">
+                                    <p class="ratings">
+                                        <a>4.0</a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star"></span></a>
+                                        <a href="#"><span class="fa fa-star-o"></span></a>
+                                    </p>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 emphasis">
+                                    <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
+                                    </i> <i class="fa fa-comments-o"></i>微信</button>
+                                    <button type="button" class="btn btn-primary btn-xs">
+                                        <i class="fa fa-user"> </i> QQ
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div style="width:650px;float: left;">-->
+                    <!--<div class="col-md-12 col-sm-12 col-xs-12">-->
+                        <!--<div class="x_panel">-->
+                            <!--<div class="x_title">-->
+                                <!--<h2>请输入您的评论<small>现在js加载不进来，无法输入</small></h2>-->
+                                <!--<div class="clearfix"></div>-->
+                            <!--</div>-->
+                            <!--<div class="x_content">-->
+                                <!--<div id="alerts"></div>-->
+                                <!--<div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#editor-one">-->
+                                    <!--<div class="btn-group">-->
+                                        <!--<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>-->
+                                        <!--<ul class="dropdown-menu">-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="btn-group">-->
+                                        <!--<a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>-->
+                                        <!--<ul class="dropdown-menu">-->
+                                            <!--<li>-->
+                                                <!--<a data-edit="fontSize 5">-->
+                                                    <!--<p style="font-size:17px">Huge</p>-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<a data-edit="fontSize 3">-->
+                                                    <!--<p style="font-size:14px">Normal</p>-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<a data-edit="fontSize 1">-->
+                                                    <!--<p style="font-size:11px">Small</p>-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="btn-group">-->
+                                        <!--<a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>-->
+                                        <!--<a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>-->
+                                        <!--<a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>-->
+                                        <!--<a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="btn-group">-->
+                                        <!--<a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>-->
+                                        <!--<a class="btn" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>-->
+                                        <!--<a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>-->
+                                        <!--<a class="btn" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="btn-group">-->
+                                        <!--<a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>-->
+                                        <!--<a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>-->
+                                        <!--<a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>-->
+                                        <!--<a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="btn-group">-->
+                                        <!--<a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>-->
+                                        <!--<div class="dropdown-menu input-append">-->
+                                            <!--<input class="span2" placeholder="URL" type="text" data-edit="createLink" />-->
+                                            <!--<button class="btn" type="button">Add</button>-->
+                                        <!--</div>-->
+                                        <!--<a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="btn-group">-->
+                                        <!--<a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>-->
+                                        <!--<input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />-->
+                                    <!--</div>-->
+
+                                    <!--<div class="btn-group">-->
+                                        <!--<a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>-->
+                                        <!--<a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div id="editor-one" class="editor-wrapper"></div>-->
+
+                                <!--<textarea name="descr" id="descr" style="display:none;"></textarea>-->
+                                <!--<button class="btn btn-primary" type="reset">Reset</button>-->
+                                <!--<button type="submit" class="btn btn-success">Submit</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--此处为评论框框-->
+                <div style="width:650px;float: left;">
+                    <div class="x_title">
+                        <h2>请输入您的评论</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <span>您即将回复的是：</span><span ng-bind="submitDiscussDto.toId"></span><span ng-bind="submitDiscussDto.toPeopleName" style="color:#F00;"></span><button type="button" class="btn btn-primary btn-xs" ng-click="reSetReplyPeople()">重置</button>
+                    <textarea style="resize:none;width:650px;height: 200px" ng-model="submitDiscussDto.answerCon"></textarea>
+                    <button type="submit" class="btn btn-success" ng-click="submitReply()">提交</button>
+                    <button class="btn btn-primary" type="reset" ng-click="resetReply()">重置</button>
+                </div>
+                <!--<div class="ueditor" ng-model="content"></div>-->
+            </ul>
+
+        </div>
+</div>

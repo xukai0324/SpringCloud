@@ -1,0 +1,44 @@
+
+<div style="width:98%;padding :15px 100px ">
+<div class="x_panel">
+<div class="x_content">
+    <br />
+    <ng-form class="form-horizontal form-label-left" name="techrepoEditFrom">
+    <div class="form-group"> <label class="control-label col-md-3 col-sm-3 col-xs-12" >技术名称</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input type="text"class="form-control" ng-model="techrepo.name" ng-disabled="true" required warn-text="{ErrPattern:'需求ID不能为空'}"/>
+        </div>
+    </div>
+    <div class="form-group"> <label class="control-label col-md-3 col-sm-3 col-xs-12">资源类型</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <code-type  class="seletc_bor" base-code="component_label" ng-model='techrepo.type' required 
+                    ng-disabled="fa;se" is-fuzzy="true"/>
+        </div>
+    </div>
+    <div class="form-group"> <label class="control-label col-md-3 col-sm-3 col-xs-12" >特性</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <textarea class="form-control" ng-model="techrepo.feature" required warn-text="{ErrPattern:'资源特性描述不能为空'}"></textarea>
+        </div>
+    </div>
+    <div class="form-group"> <label class="control-label col-md-3 col-sm-3 col-xs-12" >适用于</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <textarea class="form-control" ng-model="techrepo.applyTo" required warn-text="{ErrPattern:'资源特性描述不能为空'}"></textarea>
+        </div>
+    </div>
+    <div class="form-group"> <label class="control-label col-md-3 col-sm-3 col-xs-12" >更新内容</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <textarea class="form-control" ng-model="techrepo.updateFor" required warn-text="{ErrPattern:'更新内容不能为空'}"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+            <button type="button" class="btn btn-primary" ng-click="exit()">取消</button>
+            <button type="reset" class="btn btn-primary">重置</button>
+            <button type="submit" class="btn btn-success" ng-disabled="updatetechrepoDisableFlag" ng-click="updateTechrepo()">提交</button>
+        </div>
+    </div>
+    <div data-ng-include ="'components/techrepo/release/tpl/alertLayer.html'"></div>
+    </ng-form>
+</div>
+</div>
+</div>

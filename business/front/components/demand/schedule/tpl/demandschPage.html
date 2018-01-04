@@ -1,0 +1,72 @@
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="index_list">
+                            <div class="index_tit"><h6>查询</h6></div>
+                            <ul class="list_ul list_ul_bor">
+                                <li><span>需求ID：</span></li>
+                                <li class="font_left">
+                                    <span class="f1" ng-model ="demand.demandId" >{{demand.demandId}} </span>
+                                </li>
+                                <li><span>需求描述：</span></li>
+                                <li class="font_left">
+                                    <span class="f1" ng-model ="demand.demandDesc" >{{demand.demandDesc}} </span>
+                                </li>
+                                <li><span>填报人：</span></li>
+                                <li><input type="text" class="fl" ng-model="demandschQueryCondition.userCode"></li>
+                                <li><span>状态：</span></li>
+                                <li><code-type  class="seletc_bor" base-code="demandschStatus" ng-model='demandschQueryCondition.status' is-fuzzy="true"></code-type></li>
+                            </ul>
+                            <div class="pending_btn">
+                                <div class="pending_btn1">
+                                    <span class="a_search" ng-click="demandschPageQuery()">搜索</span>
+                                    <span class="a_reset" ng-click="demandschPageReset()">重置</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <div class="table-responsive">
+                                    <div class="index_list index_list_table">
+                                        <div class="index_tit">
+                                            <h6 class="fl">搜索结果</h6>
+                                        </div>
+                                    <table class="table">
+                                        <tr class="headings">
+                                            <th class="column-title">进度ID </th>
+                                            <th class="column-title">填报人</th>
+                                            <th class="column-title">联系电话</th>
+                                            <th class="column-title">进度描述</th>
+                                            <th class="column-title">状态</th>
+                                            <th class="column-title">操作</th>
+                                            <!--15-->
+                                        </tr>
+                                        <tr class="even pointer" ng-repeat="d in demandschListData">
+
+                                            <td ng-bind="d.scheduleId"></td>
+                                            <td ng-bind="d.userCode"></td>
+                                            <td ng-bind="d.telephone"></td>
+                                            <td ng-bind="d.scheduleDesc"></td>
+                                            <td ng-bind="d.status"></td>
+
+                                            <td class="t_last">
+                                                <a ng-click="demandschView(d.id)">查看</a>
+                                                <a ng-show="demandschShow.edit" ng-click="demandschEdit(d.id)"> | 修改</a>
+                                                <a ng-show="demandschShow.del" ng-click="demandschDel(d.id)"> | 删除</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="index_page">
+                                        <tm-pagination conf="paginationConf"></tm-pagination>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--按钮-->
+                    <div class="index_btn1 btn_move_left">
+                        <span ng-show="demandschShow.add" class="creat" ng-click="demandschAdd()">新增</span>
+                        <span class="edit" ng-click="exit()">退 出</span>
+                    </div>
+                    <div data-ng-include ="'components/demand/release/tpl/alertLayer.html'"></div>
+                    </div>

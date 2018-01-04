@@ -1,0 +1,62 @@
+
+<div style="width:98%;padding :15px 100px ;color: #CCCCCC">
+    <div class="x_panel">
+
+            <form class="form-horizontal form-label-left" name="">
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >需求ID</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demandsch.demandId" ng-disabled="true" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >进度ID</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demandsch.scheduleId" ng-disabled="true" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">进度描述</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <textarea class="form-control" ng-model="demandsch.scheduleDesc" ng-disabled="true"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >进度状态</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <!--<input type="text"class="form-control" ng-model="demandsch.status" ng-disabled="true"/>-->
+                        <code-type  class="seletc_bor" base-code="demandschStatus" ng-model='demandsch.status' required ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >所属阿米巴</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <!--<input type="text"class="form-control" ng-model="demandsch.amoebaId" ng-disabled="true"/>-->
+                        <code-type  class="seletc_bor" base-code="amoebaList" ng-model='demandsch.amoebaId' required is-fuzzy="true"></code-type>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >填报人</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demandsch.userCode" ng-disabled="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >联系电话</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demandsch.telephone" ng-disabled="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >邮箱</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demandsch.email" ng-disabled="true"/>
+                    </div>
+                </div>
+
+                <div class="index_btn1">
+                    <span class="submit" ng-click="exit()">退 出</span>
+                </div>
+            </form>
+    </div>
+</div>

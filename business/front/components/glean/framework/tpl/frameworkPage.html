@@ -1,0 +1,68 @@
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="index_list">
+                            <div class="index_tit"><h6>查询</h6></div>
+                            <ul class="list_ul list_ul_bor">
+                                <li><span>框架名称：</span></li>
+                                <li><input type="text" class="fl" ng-model="frameworkQueryCondition.frameworkName"></li>
+                                <!--<li><span>审核人：</span></li>
+                                <li><input type="text" class="fl" ng-model="frameworkQueryCondition.duditorBy"></li>-->
+                                <li><span>创建人：</span></li>
+                                <li><input type="text" class="fl" ng-model="frameworkQueryCondition.createBy"></li>
+                                </ul>
+                            <div class="pending_btn">
+                                <div class="pending_btn1">
+                                    <span class="a_search" ng-click="frameworkPageQuery()">搜索</span>
+                                    <span class="a_reset" ng-click="frameworkPageReset()">重置</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <div class="table-responsive">
+                                    <div class="index_list index_list_table">
+                                        <div class="index_tit">
+                                            <h6 class="fl">搜索结果</h6>
+                                        </div>
+                                    <table class="table">
+                                        <tr class="headings">
+                                        
+                                        <!-- 
+                                            <th class="column-title">工具代码</th>
+                                        	<th class="column-title">备注 </th>
+                                           	<td ng-bind="d.toolcood"></td>
+                                         -->
+                                            <th class="column-title">框架名称</th>
+                                            <th class="column-title">框架描述</th>
+                                            <th class="column-title">创建人</th>
+                                           
+                                            <th class="column-title">操作</th>
+                                            <!--15-->
+                                        </tr>
+                                        <tr class="even pointer" ng-repeat="d in frameworkListData">
+
+                                            <td ng-bind="d.frameworkName"></td>
+                                            <td ng-bind="d.frameworkDescribe"></td>
+                                           	<td ng-bind="d.creator"></td>
+                                           	
+                                            <td class="t_last">
+                                                <a ng-click="frameworkView(d.id)">查看</a>
+                                                <a ng-click="frameworkEdit(d.id)"> | 修改</a>
+                                                <a ng-click="frameworkDel(d.id)"> | 删除</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="index_page">
+                                        <tm-pagination conf="paginationConf"></tm-pagination>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--按钮-->
+                    <div class="index_btn1 btn_move_left">
+                        <span class="creat" ng-click="frameworkAdd()">新增</span>
+                        <span class="edit" ng-click="exit()">退 出</span>
+                    </div>
+                    <div data-ng-include ="'components/glean/framework/tpl/alertLayer.html'"></div>

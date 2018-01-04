@@ -1,0 +1,93 @@
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="index_list">
+                            <div class="index_tit"><h6>查询</h6></div>
+                            <ul class="list_ul list_ul_bor">
+                                <li><span>组件名称：</span></li>
+                                <li><input type="text" class="fl" ng-model="componentQueryCondition.componentNameId"></li>
+                               <!-- <li><span>审核人：</span></li>
+                                <li><input type="text" class="fl" ng-model="componentQueryCondition.duditorBy"></li>-->
+                                <li><span>审核状态：</span></li>
+                                <li>
+                                    <code-type class="seletc_bor" base-code="auditStatus" ng-model='componentQueryCondition.auditStatus' ng-disabled="false" is-fuzzy="true"></code-type>
+                                </li>
+                                <li><span>创建人：</span></li>
+                                <li><input type="text" class="fl" ng-model="componentQueryCondition.createBy"></li>
+                                <li><span>类型：</span></li>
+                                <li>
+                                    <!--<input type="text" class="fl" ng-model="componentQueryCondition.actionType">-->
+                                    <code-type class="seletc_bor" base-code="copType" ng-model='componentQueryCondition.codeTypeId' ng-disabled="false" is-fuzzy="true"></code-type>
+                                </li>
+                            </ul>
+                            <div class="pending_btn">
+                                <div class="pending_btn1">
+                                    <span class="a_search" ng-click="componentPageQuery()">搜索</span>
+                                    <span class="a_reset" ng-click="componentPageReset()">重置</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <div class="table-responsive">
+                                    <div class="index_list index_list_table">
+                                        <div class="index_tit">
+                                            <h6 class="fl">搜索结果</h6>
+                                        </div>
+                                    <table class="table">
+                                        <tr class="headings">
+                                            <th class="column-title">ID </th>
+                                            <th class="column-title">组件名称</th>
+                                            <th class="column-title">大版本 </th>
+                                            <th class="column-title">小版本 </th>
+                                            <th class="column-title">类型</th>
+                                            <th class="column-title">描述 </th>
+                                            <th class="column-title">备注</th>
+                                            <!--<th class="column-title">审核人</th>
+                                            <th class="column-title">审核时间</th>
+                                            <th class="column-title">审核状态</th>
+                                            <th class="column-title">创建人</th>
+                                            <th class="column-title">创建时间</th>
+                                            <th class="column-title">最后修改人</th>
+                                            <th class="column-title">修改时间</th>-->
+                                            <th class="column-title">是否删除</th>
+                                            <th class="column-title">操作</th>
+                                            <!--15-->
+                                        </tr>
+                                        <tr class="even pointer" ng-repeat="d in componentListData">
+
+                                            <td ng-bind="d.id"></td>
+                                            <td ng-bind="d.componentNameId"></td>
+                                            <td ng-bind="d.versionId"></td>
+                                            <td ng-bind="d.subVersion"></td>
+                                            <td ng-bind="d.codeTypeId"></td>
+                                            <td ng-bind="d.descript"></td>
+                                            <td ng-bind="d.remark"></td>
+                                           <!-- <td ng-bind="d.duditorBy"></td>
+                                            <td ng-bind="d.auditDate"></td>
+                                            <td ng-bind="d.auditStatus"></td>
+                                            <td ng-bind="d.createBy"></td>
+                                            <td ng-bind="d.createTime"></td>
+                                            <td ng-bind="d.updateBy"></td>
+                                            <td ng-bind="d.updateTime"></td>-->
+                                            <td ng-bind="d.isDeleted"></td>
+                                            <td class="t_last">
+                                                <a ng-click="componentView(d.id)">查看</a>
+                                                <a ng-click="componentEdit(d.id)"> | 修改</a>
+                                                <a ng-click="componentDel(d.id)"> | 删除</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="index_page">
+                                        <tm-pagination conf="paginationConf"></tm-pagination>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--按钮-->
+                    <div class="index_btn1 btn_move_left">
+                        <span class="creat" ng-click="componentAdd()">新增</span>
+                        <span class="edit" ng-click="exit()">退 出</span>
+                    </div>
+                    <div data-ng-include ="'components/glean/component/tpl/alertLayer.html'"></div>

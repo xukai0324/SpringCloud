@@ -1,0 +1,143 @@
+<!--菜单维护-->
+<div class="index_con produce_center">
+    <div class="index_list" >
+        <div class="index_tit"><h6>项目编辑</h6></div>
+            <ng-form name="projectSaveForm">
+                <ul class="list_ul">
+                    <li><span>項目名称：</span></li>
+                    <li><input mc-placeholder="需要1~20位字符组成" type="text" class="fl" ng-model="gleanProjectInfoDto.projectName" required ng-pattern="{{namePattern}}"  warn-text="{ErrPattern:'需要1~20位字符组成'}" maxlength="20" /></li>
+
+                    <li></li>
+                    <li></li>
+
+                    <li><span>项目类型：</span></li>
+                    <li>
+                        <div class="ui-select">
+                            <code-type  class="seletc_bor" base-code="sysType" ng-model='gleanProjectInfoDto.codeCode' ng-disabled="false" required warn-text="{ErrPattern:'请选择项目类型'}" is-fuzzy="true"></code-type>
+                        </div>
+                    </li>
+
+                    <li><span>所属阿米巴：</span></li>
+                    <li>
+                        <div class="ui-select">
+                            <code-type class="seletc_bor" base-code="amoebaListWithUser" ng-model='gleanProjectInfoDto.amoebaId' ng-disabled="false" required  warn-text="{ErrPattern:'请选择所属阿米巴'}"  is-fuzzy="true"></code-type>
+                        </div>
+                    </li>
+
+                    <li><span>项目开始时间：</span></li>
+                    <li>
+                        <input name="myStartTime" type="text" id="startDate" jedate  format="YYYY-MM-DD" class="date-input fl date"
+                               ng-model="gleanProjectInfoDto.startDate"  date-before="{{gleanProjectInfoDto.endDate}}" required readonly warn-text="{ErrPattern:'项目开始日期不能为空'}" />
+                        <b style="position:absolute;left:0px;font-size:8px;"  ng-show='projectSaveForm.myStartTime.$error.dateBefore == true'>开始时间请选择在结束时间之前</b>
+                        <b style="position:absolute;left:0px;font-size:8px;" ng-show='projectSaveForm.myStartTime.$error.dateAfterNull == true'><br/>开始时间不允许为空</b>
+                    </li>
+                    <li><span>项目结束时间：</span></li>
+                    <li>
+                        <input name="myEndTime" type="text" id="endDate" jedate  date-after="{{gleanProjectInfoDto.startDate}}"  format="YYYY-MM-DD" class="date-input fl date"  ng-model="gleanProjectInfoDto.endDate" readonly warn-text="{ErrPattern:'项目开始日期不能为空'}"/><br/>
+                        <b style="position:absolute;left:0px;font-size:8px;"   ng-show='projectSaveForm.myEndTime.$error.dateAfter == true'>结束时间请选择在开始时间之后</b>
+                    </li>
+                    <li class="clear_both">
+                        <span>备注信息：</span>
+                    </li>
+                    <li>
+                        <input type="text"  value="" ng-model="gleanProjectInfoDto.remark" width="200px" maxlength="200" ng-maxlength="200"/>
+                    </li>
+
+                    </ul>
+				<div class="index_list index_list_table">
+                    <div class="index_tit">
+                        <h6 class="fl" style="color: #FF5722;" >框架信息</h6>
+                        <span style="float:right;margin-top: 8px;margin-right: 13px; color: #FF5722;" ng-click="addFramework()">选择框架</span>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover">
+                        <tr>
+                            <th>
+                                <span class="span_text">框架名称</span>
+                            </th>
+                            <th>
+                                <span class="span_text">框架描述</span>
+                            </th>
+                            <th>
+                                <span class="span_text">包含组件</span>
+                            </th>
+                        </tr>
+                        <tr ng-click="delFramework()">
+                        	<td>{{gleanProjectInfoDto.gleanFrameworkInfoDto.frameworkName}}</td>
+                            <td>{{gleanProjectInfoDto.gleanFrameworkInfoDto.frameworkDescribe}}</td>
+                            <td>
+			                    <ul class="dl-horizontal" ng-repeat="componentDto in gleanProjectInfoDto.gleanFrameworkInfoDto.gleanFrameworkComponentDtos" >
+							      <li>{{componentDto.componentName}}</li>
+							    </ul>
+							</td>
+                        </tr>
+                    </table>
+                   
+                </div>
+               
+                <div class="row">
+                  <!--  <div class="col-sm-4 col-md-5">
+				    <div class="thumbnail">
+				      <div class="caption">
+				        <div class="index_list"><h2>框架信息 <span class="btn pull-right"  ng-click="addFramework()">调整</span></h2></div>
+	                    <div class="index_list" >
+		                	<dl class="dl-horizontal" >
+			            		<dt>框架名称名称</dt>
+			            		<dd>框架描述</dd>
+			            	</dl>
+		                    <dl class="dl-horizontal" ng-click="delFramework()">
+						      <dt>{{gleanProjectInfoDto.gleanFrameworkInfoDto.frameworkName}}</dt>
+						      <dd>{{gleanProjectInfoDto.gleanFrameworkInfoDto.frameworkDescribe}}</dd>
+						    </dl>
+		                </div>
+				      </div>
+				    </div>
+				  </div> -->
+				  <div class="col-sm-4 col-md-5">
+				    <div class="thumbnail">
+				      <div class="caption">
+				        <div class="index_list"><h2>组件信息 <span class="btn pull-right"  ng-click="addComponent()">调整</span></h2></div>
+	                    <div class="index_list" >
+		                	<dl class="dl-horizontal" >
+			            		<dt>组件名称</dt>
+			            		<dd>组件版本</dd>
+			            	</dl>
+		                    <dl class="dl-horizontal" ng-repeat="componentDto in gleanProjectInfoDto.gleanProjectComponentDtoList" ng-click="delComponent($index)">
+						      <dt>{{componentDto.componentName}}</dt>
+						      <dd>{{componentDto.componentVersion}}</dd>
+						    </dl>
+		                </div>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col-sm-4 col-md-5">
+				    <div class="thumbnail">
+				      <div class="caption">
+				        <div class="index_list"><h2>工具信息 <span class="btn pull-right"  ng-click="addTool()">调整</span></h2></div>
+	                    <div class="index_list" >
+		                	<dl class="dl-horizontal" >
+			            		<dt>工具名称</dt>
+			            		<dd>工具版本</dd>
+			            	</dl>
+		                    <dl class="dl-horizontal" ng-repeat="toolDto in gleanProjectInfoDto.gleanProjectToolDtoList" ng-click="delTool($index)">
+						      <dt>{{toolDto.toolName}}</dt>
+						      <dd>{{toolDto.toolVersion}}</dd>
+						    </dl>
+		                </div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+                
+                    <!--按钮-->
+                <div class="index_btn1">
+                    <button  class="submit" ng-disabled="menuSaveDisableFlag" ng-click="projectSave()">确 定</button>
+                    <span class="edit" ng-click="exit()">退 出</span>
+                </div>
+            </ng-form>
+    </div>
+    <div data-ng-include ="'components/glean/project/tpl/projectAlertLayer.html'"></div>
+    <div data-ng-include ="'components/glean/project/tpl/projectComponentsLayer.html'"></div>
+    <div data-ng-include ="'components/glean/project/tpl/projectComponentsLayerForFrameWork.html'"></div>
+    <div data-ng-include ="'components/glean/project/tpl/projectToolsLayer.html'"></div>
+    <div data-ng-include ="'components/glean/project/tpl/projectFrameworkLayer.html'"></div>
+</div>

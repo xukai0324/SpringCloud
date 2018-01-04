@@ -1,0 +1,69 @@
+
+<div style="width:98%;padding :15px 100px ;color: #CCCCCC">
+    <div class="x_panel">
+
+            <form class="form-horizontal form-label-left" name="">
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >需求ID</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demand.demandId" ng-disabled="true" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">需求描述</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <textarea class="form-control" ng-model="demand.demandDesc" ng-disabled="true"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >需求等级</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <!--<input type="text"class="form-control" ng-model="demand.demandLevel" ng-disabled="true"/>-->
+                        <code-type  class="seletc_bor" base-code="demandLevel" ng-model='demand.demandLevel' required ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >需求状态</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <!--<input type="text"class="form-control" ng-model="demand.status" ng-disabled="true"/>-->
+                        <code-type  class="seletc_bor" base-code="demandStatus" ng-model='demand.status' required ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >所属阿米巴</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <!--<input type="text"class="form-control" ng-model="demand.amoebaId" ng-disabled="true"/>-->
+                        <code-type  class="seletc_bor" base-code="amoebaList" ng-model='demand.amoebaId' required is-fuzzy="true"></code-type>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >发布人</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demand.userCode" ng-disabled="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >联系电话</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demand.telephone" ng-disabled="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >邮箱</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demand.email" ng-disabled="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >期望完成日期</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="demand.expectDate" ng-disabled="true"/>
+                    </div>
+                </div>
+
+                <div class="index_btn1">
+                    <span class="submit" ng-click="exit()">退 出</span>
+                </div>
+            </form>
+    </div>
+</div>

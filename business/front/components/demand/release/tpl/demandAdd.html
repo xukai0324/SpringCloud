@@ -1,0 +1,66 @@
+
+<div style="width:98%;padding :15px 100px ">
+    <div class="x_panel">
+        <div class="x_content">
+            <br />
+            <ng-form class="form-horizontal form-label-left" name="demandSaveFrom">
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">需求描述</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <textarea class="form-control" ng-model="demand.demandDesc" required warn-text="{ErrPattern:'需求描述不能为空'}"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >需求等级</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <!--<input type="text"class="form-control" ng-model="demand.demandLevel" required/>-->
+                        <code-type  class="seletc_bor" base-code="demandLevel" ng-model='demand.demandLevel' required ng-disabled="false" is-fuzzy="true" warn-text="{ErrPattern:'需求等级不能为空'}"></code-type>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >期望完成日期</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <!--<input type="text" class="form-control" ng-model="demand.expectDate" />-->
+                        <input type="text" id="expectDate"  class="form-control" jedate  format="YYYY-MM-DD"
+                               ng-model="demand.expectDate"  required warn-text="{ErrPattern:'期望完成日期不能为空'}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >所属阿米巴</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <!--<input type="text"class="form-control" ng-model="demand.amoebaId"/>-->
+                        <code-type  class="seletc_bor" base-code="amoebaList" ng-model='demand.amoebaId' required ng-disabled="false" is-fuzzy="true" warn-text="{ErrPattern:'所属阿米巴不能为空'}"></code-type>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >发布人</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demand.userCode" required warn-text="{ErrPattern:'发布人不能为空'}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >联系电话</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demand.telephone" required warn-text="{ErrPattern:'联系电话不能为空'}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >邮箱</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" ng-model="demand.email" required warn-text="{ErrPattern:'邮箱不能为空'}"/>
+                    </div>
+                </div>
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                        <button type="button" class="btn btn-primary" ng-click="exit()">取消</button>
+                        <button type="submit" class="btn btn-success"  ng-disabled="saveDemandDisableFlag" ng-click="saveDemand()">添加</button>
+                    </div>
+                </div>
+                <div data-ng-include ="'components/demand/release/tpl/alertLayer.html'"></div>
+            </ng-form>
+        </div>
+    </div>
+</div>

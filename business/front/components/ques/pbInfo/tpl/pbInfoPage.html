@@ -1,0 +1,132 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2><i class="fa fa-share-alt"></i>已解决热门问题一览<small>Top20</small>
+                <small>(10天内)</small>
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="col-md-4 hidden-small">
+                <table class="countries_list">
+                    <tbody>
+                        <tr ng-repeat="hasResolveProblem in QuesProblemVo.hasResolveProblems | limitTo:7">
+                            <td><a ng-click="showDetail(hasResolveProblem.id)" ng-bind="hasResolveProblem.pbTitle"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 hidden-small">
+                <table class="countries_list">
+                    <tbody>
+                        <tr ng-repeat="hasResolveProblem in QuesProblemVo.hasResolveProblems | limitTo:14" ng-if="$index>6">
+                            <td><a ng-click="showDetail(hasResolveProblem.id)" ng-bind="hasResolveProblem.pbTitle"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 hidden-small">
+                <table class="countries_list">
+                    <tbody>
+                        <tr ng-repeat="hasResolveProblem in QuesProblemVo.hasResolveProblems | limitTo:20" ng-if="$index>13">
+                            <td><a ng-click="showDetail(hasResolveProblem.id)" ng-bind="hasResolveProblem.pbTitle"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+    <div class="x_panel" style="width:335px;float: left;" ng-repeat="hasNotResolveProblem in QuesProblemVo.hasNotResolveProblems">
+        <div class="x_title">
+            <h2><i class="fa fa-share-alt"></i><text ng-bind="hasNotResolveProblem.pbTypeName"></text><small>未解决Top10</small>
+            </h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <table class="countries_list">
+                <tbody>
+                    <tr ng-repeat="quesProblemDto in hasNotResolveProblem.quesProblemDtos | limitTo:10">
+                        <td><a ng-click="showDetail(quesProblemDto.id)" ng-bind="quesProblemDto.pbTitle"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="index_list">
+            <div class="index_tit"><h6>答疑--条件查询</h6></div>
+            <ul class="list_ul list_ul_bor">
+                <li><span>问题标题：</span></li>
+                <li>
+                    <input type="text" class="fl" ng-model="QuesListQueryCondition.pbTitle">
+                </li>
+                <li><span>是否已解决：</span></li>
+                <li>
+                    <select class="form-control" ng-model="QuesListQueryCondition.pbState">
+                        <option value="0">已解决</option>
+                        <option value="1">未解决</option>
+                    </select>
+                </li>
+                <li><span>问题类型：</span></li>
+                <li>
+                    <select class="form-control" ng-options="x.codeCode as x.codeName for x in pbInfoDto" ng-model="QuesListQueryCondition.pbType">
+                        <option value="">查询或选择...</option>
+                    </select>
+                </li>
+                <li><span>所属部门：</span></li>
+                <li>
+                    <select class="form-control" ng-options="x.codeCode as x.codeName for x in departMentDto" ng-model="QuesListQueryCondition.departmentId">
+                        <option value="">查询或选择...</option>
+                    </select>
+                </li>
+        </ul>
+        <div class="pending_btn">
+            <div class="pending_btn1">
+                <span class="a_search" ng-click="findQuesList()">搜索</span>
+                <span class="a_reset" ng-click="goPutQuesPage()">发布问题</span>
+            </div>
+        </div>
+    </div>
+    <div class="x_panel">
+        <div class="x_content">
+            <div class="table-responsive">
+                <div class="index_list index_list_table">
+                    <div class="index_tit">
+                        <h6 class="fl">搜索结果</h6>
+                    </div>
+                    <table class="table">
+                        <tr class="headings">
+                            <th>标题 </th>
+                            <th>问题类型 </th>
+                            <th>奖励积分</th>
+                            <th>所属部门</th>
+                            <th>回复数 </th>
+                            <th>是否解决 </th>
+                            <th>提问时间</th>
+                        </tr>
+                        <tr class="even pointer" ng-repeat="d in QuesListDto">
+                            <td><a ng-click="showDetail(d.id)" ng-bind="d.pbTitle"></a></td>
+                            <td ng-bind="d.pbTypeName"></td>
+                            <td ng-bind="d.pbScore"></td>
+                            <td ng-bind="d.departmentName"></td>
+                            <td ng-bind="d.replyNum"></td>
+                            <td ng-if="d.pbState == 1">未解决</td>
+                            <td ng-if="d.pbState == 0">已解决</td>
+                            <td ng-bind="d.createTime | date:'yyyy-MM-dd HH:mm:ss'"></td>
+                        </tr>
+                    </table>
+                    <div class="index_page">
+                        <tm-pagination conf="paginationConf"></tm-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

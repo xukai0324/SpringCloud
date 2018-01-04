@@ -1,0 +1,13 @@
+.remove_content1 .select_wid{width:170px\9;}
+code-type.seletc_bor{width: 100%\9;}
+.list_ul li.auto_width{width:210px\9;}
+.list_ul li.auto_width .floor_width{width:150px\9;}
+/*UIT兼容IE8*/
+.index_tit {border: 1px solid #cdcdcd\9;border-bottom: 0\9;}
+.list_ul {border: 1px solid #cdcdcd\9;border-top: 0\9;}
+.index_page {border: 1px solid #cdcdcd\9;border-top: 0\9;}
+.index_list table th.t_first {border-left: 1px solid #cdcdcd !important\9;}
+.index_list table td.t_last,.index_list table th.t_last{min-width:70px\9;}
+.pending_btn {border: 1px solid #cdcdcd\9;}
+.index_list .order_success{ border: 1px solid #cdcdcd\9;border-top:0\9;}
+.index_con .index_list_table{border:1px solid #cdcdcd\9;}

@@ -1,0 +1,120 @@
+<!--菜单维护-->
+<div class="index_con produce_center">
+    <div class="index_list" >
+        <div class="index_tit"><h6>部署环境维护</h6></div>
+        <ng-form name="deployEnvSaveForm">
+            <ul class="list_ul">
+                <li><span>所属项目：</span></li>
+                <li>
+                    <input type="hidden" class="fl" ng-model="deployEnv.id"/>
+                    <div class="ui-select">
+                        <code-type ng-required="true" class="seletc_bor" base-code="projectList" upper-code="{{loginUser.userCode}}" ng-model="deployEnv.projectId" ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </li>
+
+                <li><span>操作系统名称：</span></li>
+                <li>
+                    <div class="ui-select">
+                        <code-type ng-required="true" class="seletc_bor" ng-change="setServerVersionIdList()" base-code="serverNameId" ng-model="deployEnv.serverNameId" ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </li>
+
+                <li><span>操作系统版本：</span></li>
+                <li class="">
+                    <select class="form-control" ng-model="deployEnv.serverVersionId" required ng-options="x.codeCode as x.codeName for x in serverVersionIdList">
+                        <option value="">--请选择--</option>
+                    </select>
+                </li>
+
+                <li><span>运行环境类型：</span></li>
+                <li class="">
+                    <div class="ui-select">
+                        <code-type ng-required="true" class="seletc_bor" base-code="serverUse" ng-model="deployEnv.serverTypeId" ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </li>
+
+                <li><span>cpu：</span></li>
+                <li class="">
+                    <input mc-placeholder="需要1~5位字符组成" type="text" class="fl" ng-model="deployEnv.cpuInfo" required ng-pattern="{{namePattern}}"  warn-text="{ErrPattern:'需要1~5位字符组成'}" maxlength="20" />
+                </li>
+
+                <li><span>内存：</span></li>
+                <li class="">
+                    <input mc-placeholder="需要1~5位字符组成" type="text" class="fl" ng-model="deployEnv.memory" required ng-pattern="{{namePattern}}"  warn-text="{ErrPattern:'需要1~5位字符组成'}" maxlength="20" />
+                </li>
+
+                <li><span>磁盘：</span></li>
+                <li class="">
+                    <input mc-placeholder="需要1~5位字符组成" type="text" class="fl" ng-model="deployEnv.disk" ng-pattern="{{namePattern}}"  warn-text="{ErrPattern:'需要1~5位字符组成'}" maxlength="20" />
+                </li>
+
+                <li><span>中间件名称：</span></li>
+                <li class="">
+                    <div class="ui-select">
+                        <code-type ng-required="true" class="seletc_bor" ng-change="setSoftwareVersionIdList()" base-code="softwareNameId" ng-model="deployEnv.softwareNameId" ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </li>
+
+                <li><span>中间件版本：</span></li>
+                <li class="">
+                    <select class="form-control" ng-model="deployEnv.softwareVersionId" required ng-options="x.codeCode as x.codeName for x in softwareVersionIdList">
+                        <option value="">--请选择--</option>
+                    </select>
+                </li>
+
+                <li><span>中间件类型：</span></li>
+                <li class="">
+                    <div class="ui-select">
+                        <code-type ng-required="true" class="seletc_bor" base-code="softwareTypeId" ng-model="deployEnv.softwareTypeId" ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </li>
+
+                <li><span>是否容器化：</span></li>
+                <li class="ui-radio">
+                    <select class="form-control" ng-model="deployEnv.isDocker" ng-init="deployEnv.isDocker='0'">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </li>
+
+                <li><span>容器工具：</span></li>
+                <li class="">
+                    <input type="text" class="fl" ng-model="deployEnv.dockerTools" ng-pattern="{{namePattern}}"  maxlength="20" />
+                </li>
+
+                <li><span>初始堆大小（-Xms）：</span></li>
+                <li class="">
+                    <input type="text" class="fl" ng-model="deployEnv.initHeapSize" ng-pattern="{{namePattern}}"  maxlength="20" />
+                </li>
+
+                <li><span>最小堆大小（-Xms）：</span></li>
+                <li class="">
+                    <input type="text" class="fl" ng-model="deployEnv.minHeapSize" ng-pattern="{{namePattern}}"  maxlength="20" />
+                </li>
+
+                <li><span>持久代初始值（-XX:PermSize）：</span></li>
+                <li class="">
+                    <input type="text" class="fl" ng-model="deployEnv.permSize" ng-pattern="{{namePattern}}"  maxlength="20" />
+                </li>
+
+                <li><span>最大堆大小（-Xmx）：</span></li>
+                <li class="">
+                    <input type="text" class="fl" ng-model="deployEnv.maxHeapSize" ng-pattern="{{namePattern}}"  maxlength="20" />
+                </li>
+
+                <li><span>其他参数或备注：</span></li>
+                <li class="">
+                    <input type="text" class="fl" ng-model="deployEnv.otherParameter" ng-pattern="{{namePattern}}"  maxlength="20" />
+                </li>
+
+            </ul>
+            <!--按钮-->
+            <div class="index_btn1">
+                <button  class="submit" ng-disabled="deployEnvSaveDisableFlag" ng-click="saveDeployEnv()">确 定</button>
+                <span class="edit" ng-click="exit()">退 出</span>
+            </div>
+        </ng-form>
+    </div>
+
+    <div data-ng-include ="'components/glean/deployEnv/tpl/alertLayer.html'"></div>
+</div>

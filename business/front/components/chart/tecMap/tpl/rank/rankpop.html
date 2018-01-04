@@ -1,0 +1,45 @@
+<!-- <div class="col-md-12 col-sm-12 col-xs-12"> -->
+  <!-- <div class="row"> -->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2><i class="fa fa-share-alt"></i>热门开源技术<small>Top20&nbsp;&nbsp;数据来源于<a href='https://www.oschina.net/project' target='_blank'>@oschina</a></small>
+            <small>({{TopNPopDataUpd}}天前更新)</small>
+          </h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div class="dashboard-widget-content">
+            <div class="col-md-4 hidden-small">
+              <table class="countries_list">
+                <tbody>
+                  <tr ng-repeat="popTec in TopNPopData | limitTo:7">
+                    <td><a href='{{popTec.pop_url}}' target='_blank'>{{popTec.pop_name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-4 hidden-small">
+              <table class="countries_list">
+                <tbody>
+                  <tr ng-repeat="popTec in TopNPopData | limitTo:14"  ng-if="$index>6">
+                    <td><a href='{{popTec.pop_url}}' target='_blank'>{{popTec.pop_name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-4 hidden-small">
+              <table class="countries_list">
+                <tbody>
+                  <tr ng-repeat="popTec in TopNPopData | limitTo:20"
+                  ng-if="$index>13">
+                  <td><a href='{{popTec.pop_url}}' target='_blank'>{{popTec.pop_name}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+<!-- </div> -->

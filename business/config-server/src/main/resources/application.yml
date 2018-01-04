@@ -5,6 +5,8 @@ myauth:
 eureka:
   client:
     registry-fetch-interval-seconds: 10 #默认30秒
+    service-url:
+      defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/ #注册中心地址
   instance:
     lease-renewal-interval-in-seconds: 10 #心跳时间
     lease-expiration-duration-in-seconds: 30 #发呆时间
@@ -19,36 +21,23 @@ spring:
   application:
     name: config #配置中心应用名
   profiles:
-    active: dev
-logging:
-  level: debug
----
-spring:
-  profiles: dev
+    active: native
   cloud:
     config:
       server:
         native:
           search-locations: classpath:/config
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/ #注册中心地址
-
-
----
-spring:
-  profiles: pro
-  cloud:
-    config:
-      server:
         git:
           clone-on-start: true
           uri: https://github.com/xukai0324/SpringCloud/
           search-paths: config
           username: xukai0324
           password: XK19930324
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/ #注册中心地址
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: xk
+    password: xk123
+    virtual-host: /xk
+logging:
+  level: debug

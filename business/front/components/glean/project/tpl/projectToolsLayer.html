@@ -1,0 +1,51 @@
+<div ng-show="addToolsLayer">
+    <div class="mask"></div>
+    <div class="revise_insurant" style="height:100%">
+        <ng-form novalidate="novalidate" name="insuredForm">
+            <div class="remove_header">
+                <span>工具列表</span>
+                <input ng-model="gleanToolCondition.toolName" placeholder="请输入组件名称"/>
+                <span class="a_search" ng-click="searchTool()">搜 索</span>
+                <a href="javascript:void(0)" ng-click="addhideInsure()"><i></i></a>
+            </div>
+            <div class="layerOver view" style="height: 100%; position: absolute; width: 100%; box-sizing: border-box; overflow-y: auto; padding-top: 37px;top: 0; z-index: -1;">
+               <div class="clearfix">
+               	  	<div class=" col-md-8 column ui-sortable">
+               	  		<table class="table" style="margin-top:5px;">
+               	  			<tr class="headings" ng-repeat="tool in allTools">
+               	  				<td class="col-md-3" style="vertical-align: middle;border:1px solid #ddd;">{{tool.toolName}}</td>
+               	  				<td class="col-md-9" style="vertical-align: middle;border:1px solid #ddd;">
+               	  					<div ng-repeat="toolInfo in tool.geToolsInfoListDtos" style="float:left;margin-right:5px;margin-top:2px">
+               	  					<span ng-class="{true: 'grayBackground',fasle:'whiteBackground'}[toolInfo.isSelected]" ng-click="changeTool($parent.$index,$index)" style="border:1px solid;min-width:3em;padding:0 4px;display:inline-block">{{toolInfo.version}}</span>
+               	  					</div>
+               	  				</td>
+               	  			</tr>
+               	  			<tfoot>
+               	  				<tr>
+               	  					<td class="col-md-12" colspan="2" style="vertical-align: middle;border:1px solid #ddd;">
+               	  						<div class="index_page">
+									            <tm-pagination conf="paginationConfTools"></tm-pagination>
+									        </div>
+							            <div class="config_button">
+							                <button ng-click="addhideInsure()">确 定</button><!-- ng-class="{'ngdisable':buttonSure}" ng-disabled="buttonSure"-->
+							            </div>
+               	  					</td>
+               	  				</tr>
+               	  			</tfoot>
+               	  		</table	>
+		            </div>
+		            <div class="col-md-4 column ui-sortable">
+		            	<dl class="dl-horizontal" >
+		            		<dt>工具名称</dt>
+		            		<dd>工具版本</dd>
+		            	</dl>
+		            	<dl class="dl-horizontal" ng-repeat="toolDto in gleanProjectInfoDto.gleanProjectToolDtoList" ng-click="delTool($index)">
+					      <dt>{{toolDto.toolName}}</dt>
+					      <dd>{{toolDto.toolVersion}}</dd>
+					    </dl>
+		            </div>
+            	</div>
+	        </div>
+        </ng-form>
+    </div>
+</div>

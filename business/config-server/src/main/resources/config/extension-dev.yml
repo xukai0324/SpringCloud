@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/platform?useUnicode=true&amp;characterEncoding=utf-8
+    username: platform
+    password: platform
+    max-idle: 10
+    max-wait: 10000
+    min-idle: 5
+    initial-size: 5
+    validation-query: SELECT 1
+    test-on-borrow: false
+    test-while-idle: true
+    time-between-eviction-runs-millis: 18800
+    jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=0)
+mybatis:
+  typeAliasesPackage: com.xk.extension.**.entity
+  mapperLocations: classpath:mapper/**/*.xml

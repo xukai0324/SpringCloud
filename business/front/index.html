@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html id="mainApp"  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=10,Chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <!--<base ui-sref="/">-->
+    <title>技术地图</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/tm.pagination/tm.pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jedate/jedate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/ui-tree/angular-ui-tree.css">
+    <link rel="stylesheet" type="text/css" href="css/ui-tree/ui-tree.css">
+    <link rel="stylesheet" type="text/css" href="css/lightbox/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="css/lightbox/lightbox-screen.css">
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/select/select.css"/>
+
+    <link href="css/selectDraw/selectDraw.css" rel="stylesheet">
+
+    <!--静态界面嵌套依赖-->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/nprogress/nprogress.css" rel="stylesheet">
+    <link href="lib/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="lib/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="lib/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <link href="css/custom.min.css" rel="stylesheet">
+    <link href="lib/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+	
+    <link rel="stylesheet" type="text/css" href="css/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="lib/ztree/css/zTreeStyle/zTreeStyle.css" />
+
+    <!--[if lt IE 9]>
+    <script src="lib/es5-shim.js"></script>
+    <script src="lib/es5-sham.min.js"></script>
+    <script>
+        document.createElement('ui-select');
+        document.createElement('ui-select-match');
+        document.createElement('ui-select-choices');
+        document.createElement('code-type');
+        document.createElement('ng-form');
+        document.createElement('line-chart');
+        document.createElement('map-chart');
+        document.createElement('ng-pdf8');
+        document.createElement('sino-a');
+    </script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css"/>
+    <![endif]-->
+</head>
+<div  id="bodyContent">
+<body>
+    <div ng-controller="IndexCtrl" class="index_total">
+        <div ui-view="" class="index_total"></div>
+    </div>
+    <script>
+        (function(){
+            window.CACTUS = {
+                version: '0.0.411',
+                trace: 'Y'
+            };
+
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "lib/ieCompatible.js";
+            document.body.appendChild(script);
+
+            /*加载main.js文件 也可以按照下面这种写法写*/
+            console.log("加载main.js文件");
+            script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "lib/requirejs/require.js";
+            script.setAttribute('data-main','main.js?v=' + window.CACTUS.version);
+            document.body.appendChild(script);
+        })();
+    </script>
+    <!--<script src="lib/requirejs/require.js" type="text/javascript" data-main="main.js?v=0.0.4"></script>-->
+</body>
+</div>
+</html>

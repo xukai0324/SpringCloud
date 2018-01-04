@@ -1,0 +1,32 @@
+<div class="main login_main" ng-controller="LoginCtrl">
+    <div class="container-fluid index_top login_top">
+        <div class="row">
+            <div class="logo fl"><img src="images/logo.png" alt=""/><span> 管理平台</span></div>
+        </div>
+    </div>
+    <div class="login">
+        <img src="images/login_bg.jpg" class="login_img">
+        <div class="login_con">
+            <div class="login_con1">
+                <div class="login_cen">
+                    <h3>欢迎登录</h3>
+                    <ul class="login_ul">
+                        <li>
+                            <span>账号</span>
+                            <input type="text" placeholder="请输入您的账号" ng-model="auth.user.usercode" required/>
+                        </li>
+                        <li>
+                            <span>密码</span>
+                            <input type="password" placeholder="请输入您的密码" ng-model="auth.user.password" required/>
+                        </li>
+                        <li class="li_hei">
+                            <span class="span_col">{{loginmessage}}</span>
+                            <em>忘记密码？</em>
+                        </li>
+                    </ul>
+                    <div class="login_btn" ng-click="login()">登 录</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

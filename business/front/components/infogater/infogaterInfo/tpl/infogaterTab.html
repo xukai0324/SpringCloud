@@ -1,0 +1,12 @@
+<!--待处理投保单-->
+    <div class="pend_ul_div">
+        <ul class="pend_ul">
+            <li ng-class="{true:'li_active',false:'pend_li_first'}[curActive=='Info']">
+                <span class="span_block" ng-click="infogaterInfoTab()">信息维护 </span>
+            </li>
+            <li  ng-class="{true:'li_active',false:'pend_li_last'}[curActive=='Type']">
+                <span class="span_block"  ng-click="infogaterInfoTab()">代码维护</span>
+            </li>
+        </ul>
+    </div>
+    <div class="infogaterTab" data-ng-include="infogaterTabInclude"></div>

@@ -1,0 +1,57 @@
+<!--菜单页模板-->
+<div class="aa" ng-class="{true:'show_prompt',false:'hide_prompt'}[isActive]" ng-click="navClick()">
+
+</div>
+<!--<ul class="left_ul">
+    <li ng-repeat="message in leftMenu" ng-class="{'li_active' : message.actionURL==currentURL.currentType}">
+        <a ui-sref="{{message.actionURL}}" ui-sref-opts="{reload:'{{message.actionURL}}'}">
+            <i ng-class="message.image">{{activeFlag}}</i>
+            <span ng-bind="message.menuCName"></span>
+        </a>
+    </li>
+</ul>-->
+<script type="text/ng-template" id="nodes_renderer.html">
+    <div ui-tree-handle class="angular-ui-tree-handle-helper"
+         ng-class="{'li_active' : node.actionURL==currentURL.currentType }">
+        <a ng-if="node.nodes && node.nodes.length > 0"
+           href=""
+           ng-style="{'padding-left':(node.menuLevel-1)*10+'px'}"
+           data-nodrag
+           ng-click="toggleDealNew(this)" >
+            <i ng-class="node.image">{{activeFlag}}</i>
+            <span ng-bind="node.menuCName"></span>
+            <span class="glyphicon" style="position:absolute;left:112%;top:1px;"
+                  ng-class="{
+          'glyphicon-chevron-right': collapsed,
+          'glyphicon-chevron-down': !collapsed}">
+            </span>
+        </a>
+        <!--ui-sref="{{node.actionURL}}"-->
+        <!--ui-sref-opts="{reload:'{{node.actionURL}}'}"-->
+        <a ng-if="!(node.nodes && node.nodes.length > 0)"
+           data-nodrag
+           ng-style="{'padding-left':(node.menuLevel-1)*10+'px'}"
+           ng-click="toggleDealNew(this, 'menu')"
+           class="end"
+           ui-sref="{{node.actionURL}}">
+            <i ng-class="node.image">{{activeFlag}}</i>
+            <span ng-bind="node.menuCName"></span>
+        </a>
+    </div>
+    <ol ui-tree-nodes="" ng-model="node.nodes"   ng-class="{hidden: collapsed}">
+        <li ng-repeat="node in node.nodes" ng-show="showNavMenu"
+            ui-tree-node ng-include="'nodes_renderer.html'" ng-class="menuColors[node.menuLevel%2]">
+        </li>
+    </ol>
+</script>
+
+<div ui-tree data-drag-enabled="false" id="tree-root">
+    <!--ng-class="{'li_active' : node.actionURL==currentURL.currentType}"-->
+    <ul ui-tree-nodes ng-model="data" class="left_ul">
+        <li ng-repeat="node in data"
+            ui-tree-node ng-include="'nodes_renderer.html'">
+        </li>
+    </ul>
+</div>
+
+

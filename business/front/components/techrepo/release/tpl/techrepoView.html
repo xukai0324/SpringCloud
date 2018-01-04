@@ -1,0 +1,62 @@
+
+<div style="width:98%;padding :15px 100px ;color: #CCCCCC">
+<div class="x_panel">
+    <form class="form-horizontal form-label-left" name="">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" >技术名称</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input type="text"class="form-control" ng-model="techrepo.name" ng-disabled="true" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">技术特性</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <textarea class="form-control" ng-model="techrepo.feature" ng-disabled="true"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" >资源类型</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <code-type  class="seletc_bor" base-code="component_label" ng-model='techrepo.type' required 
+                    ng-disabled="fa;se" is-fuzzy="true"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" >适用于</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input type="text"class="form-control" ng-model="techrepo.applyTo" ng-disabled="true"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" >联系人</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input type="text"class="form-control" ng-model="techrepo.updateBy" ng-disabled="true"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" >更新内容</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <textarea class="form-control" ng-model="techrepo.updateFor" ng-disabled="true"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" >更新日期</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input type="text" class="form-control" ng-model="techrepo.updateTime" ng-disabled="true"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" >创建日期</label>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <input type="text" class="form-control" ng-model="techrepo.createTime" ng-disabled="true"/>
+        </div>
+    </div>    
+
+    <div class="index_btn1">
+        <span class="submit" ng-click="exit()">退 出</span>
+    </div>
+    </form>
+</div>
+</div>

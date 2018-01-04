@@ -1,0 +1,36 @@
+<!--菜单维护-->
+<div class="index_con produce_center">
+    <div class="index_list" >
+        <div class="index_tit"><h6>人员技能查看</h6></div>
+            <ng-form name="techPersonSaveForm">
+                <ul class="list_ul">
+                    <li><span>员工姓名：</span></li>
+                    <li class="font_left">
+                        <span class="f1" ng-model ="gleanTechPersonDto.userName" >{{gleanTechPersonDto.userName}} </span>
+                    </li>
+
+                    <li><span>职位：</span></li>
+                    <li class="font_left">
+                        <span class="f1" ng-model ="gleanTechPersonDto.position" >{{gleanTechPersonDto.position}} </span>
+                    </li>
+
+                    <li><span>所属部门：</span></li>
+                    <li class="font_left">
+                        <span class="f1" ng-model ="gleanTechPersonDto.deptName" >{{gleanTechPersonDto.deptName}} </span>
+                    </li>
+
+                    <li><span>所属阿米巴：</span></li>
+                    <li class="font_left">
+                        <span class="f1" ng-model ="gleanTechPersonDto.amoebaName" >{{gleanTechPersonDto.amoebaName}} </span>
+                    </li>
+
+                    </ul>
+
+                    <!--按钮-->
+                <div class="index_btn1">
+                    <span class="submit" ng-click="exit()">退 出</span>
+                </div>
+            </ng-form>
+    </div>
+    <div data-ng-include ="'components/glean/techPerson/tpl/techPersonAlertLayer.html'"></div>
+</div>

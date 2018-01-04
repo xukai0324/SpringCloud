@@ -1,6 +1,6 @@
 package com.xk.user;
 
-import com.xk.user.api.UserApi;
+import com.xk.platform.user.api.UserApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

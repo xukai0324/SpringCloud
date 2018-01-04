@@ -1,0 +1,41 @@
+
+<div style="width:98%;padding :15px 100px ;color: #CCCCCC">
+    <div class="x_panel">
+        <form class="form-horizontal form-label-left" name="">
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" >工具名称</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input readonly=readonly type="text"class="form-control" ng-model="tools.name"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" >版本</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input readonly=readonly type="text" class="form-control" ng-model="tools.version" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input readonly=readonly type="text" class="form-control" ng-model="tools.remark"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">描述</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <textarea readonly=readonly class="form-control" ng-model="tools.descript"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+            	<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+            		<button type="button" ng-show="isAudit" class="btn btn-success" ng-click="confirmTpl('1')">审核通过</button>
+               		<button type="button" ng-show="isAudit" class="btn btn-danger" ng-click="confirmTpl('0')">审核不通过</button>
+                	<button type="button" class="btn btn-info" ng-click="exit()">退 出</button>
+                </div>
+            </div>
+            <div data-ng-include ="'components/glean/tools/tpl/alertLayer.html'"></div>
+            <div data-ng-include ="'components/glean/tools/tpl/confirmLayer.html'"></div>
+        </form>
+    </div>
+</div>

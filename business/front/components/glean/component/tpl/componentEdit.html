@@ -1,0 +1,57 @@
+
+<div style="width:98%;padding :15px 100px ">
+    <div class="x_panel">
+        <div class="x_content">
+            <br />
+            <ng-form class="form-horizontal form-label-left" name="componentSaveForm">
+               <!--  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >组件代码</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="component.code" required ng-pattern="{{codePattern}}"  warn-text="{ErrPattern:'组件代码需要1~20位字母或者数字组成,首字母大写'}" maxlength="20"  />
+                    </div>
+                </div> -->
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >组件名称</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" ng-model="component.name" required ng-pattern="{{namePattern}}"  warn-text="{ErrPattern:'组件名称需要1~20位字符组成'}" maxlength="20" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >类型</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <code-type class="form-control" base-code="copType" ng-model='component.typeCode' required warn-text="{ErrPattern:'请选择类型'}"  ng-disabled="false" is-fuzzy="true"></code-type>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >标签</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <select-draw class="form-control" draw-type="component_label" draw-show="true" ng-model='component.labelList' ng-disabled="false" required warn-text="{ErrPattern:'请选择标签'}" ></select-draw>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >备注</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <input type="text"class="form-control" class="fl" ng-model="component.remark"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">描述</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <textarea class="form-control"  class="fl" ng-model="component.descript"></textarea>
+                    </div>
+                </div>
+        </div>
+        <div class="ln_solid"></div>
+                <div class="form-group">
+                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                        <button type="button" class="btn btn-primary" ng-click="exit()">取消</button>
+                        <!--<button type="reset" class="btn btn-primary">重置</button>-->
+                        <button type="submit" class="btn btn-success" ng-click="saveComponent()">提交</button>
+                    </div>
+                </div>
+                <div data-ng-include ="'components/glean/component/tpl/alertLayer.html'"></div>
+            </ng-form>
+        </div>
+    </div>
+</div>

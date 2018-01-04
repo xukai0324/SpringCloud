@@ -1,0 +1,22 @@
+<div class="index_con" >
+    <!--增添角色-->
+    <div class="index_list">
+        <div class="index_tit"><h6>增添角色</h6></div>
+        <ng-form name="permitRoleSaveForm">
+            <ul class="list_ul">
+                <li><span>角色名称：</span></li>
+                <li><input type="text" class="fl" ng-model ="role.roleName" maxlength="20" ng-readonly="readonly" /></li>
+                <li><span>角色编码：</span></li>
+                <li><input type="text" class="fl" ng-model ="role.roleCode" maxlength="20" ng-readonly="readonly"  /></li>
+            </ul>
+            <br />
+            <div style="clear: both; text-align: center;">
+	            <ul id="tree" ztree class="ztree" ng-model="treeSelected"></ul>
+            </div>
+            <div class="index_btn1">
+                <span class="creat" ng-click="optRole();">保存</span>
+                <span class="edit" ng-click="exit();">退 出</span>
+            </div>
+        </ng-form>
+    </div>
+</div>

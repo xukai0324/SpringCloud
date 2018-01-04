@@ -1,0 +1,97 @@
+<style type="text/css" rel="stylesheet">
+    .user_role_selector{
+        width: 620px;
+        height: 400px;
+        position: fixed;
+        padding: 10px;
+        left: 50%;
+        margin-left: -300px;
+        background: #22683b;
+        overflow: auto;
+        top: 100px;
+    }
+    .user_role_selector>ul li{
+        float: left;
+        display: inline-block;
+        width: 200px;
+    }
+    .user_role_selector .ru_btn_box{
+        clear: both;
+        position: absolute;
+        bottom: 5px;
+        right: 20px;
+    }
+</style>
+<div class="index_con parent_ru_selector" >
+    <!--菜单列表-->
+    <div class="index_list">
+        <div class="index_tit"><h6>用户查询</h6></div>
+        <ul class="list_ul list_ul_bor">
+            <li><span>工号：</span></li>
+            <li><input type="text" class="fl" ng-model="queryField.userCode"></li>
+            <li><span>姓名：</span></li>
+            <li><input type="text" class="fl" ng-model="queryField.employeeName"></li>
+            <li><span>部门名称：</span></li>
+            <li>
+                <select class="fl" ng-model="queryField.departmentName">
+                    <option value=""></option>
+                    <option ng-repeat="d in deptNames" value="{{d}}">{{d}}</option>
+                </select>
+            </li>
+            <li><span>阿米巴名称：</span></li>
+            <li>
+                <select class="fl" ng-model="queryField.amoebaName">
+                    <option value=""></option>
+                    <option ng-repeat="a in amoebaNames" value="{{a}}">{{a}}</option>
+                </select>
+            </li>
+        </ul>
+        <div class="pending_btn">
+            <div class="pending_btn1">
+                <span class="a_search" ng-click="searchUser();">搜索</span>
+              <!--  <span class="a_reset" ng-click="">重置</span>-->
+            </div>
+        </div>
+    </div>
+    <div class="index_list index_list_table" ng-show="userList.length > 0">
+        <div class="index_tit">
+            <h6 class="fl">查询结果</h6>
+        </div>
+        <table class="table">
+            <th><input type="checkbox" ng-click="checkeAll($event);" ng-checked="allChecked"/></th>
+            <th>工号</th>
+            <th>名称</th>
+            <th>部门名称</th>
+            <th>阿米巴名称</th>
+            <th>操作</th>
+            <tr ng-repeat="u in userList">
+                <td><input type="checkbox" ng-click="selectedUser($event, u);" ng-checked="u.checked"/></td>
+                <td ng-bind="u.userCode"></td>
+                <td ng-bind="u.employeeName"></td>
+                <td ng-bind="u.departmentName"></td>
+                <td ng-bind="u.amoebaName"></td>
+                <td class="t_last">
+                    <a ng-click="toBindRole(u);" >绑定角色</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="index_btn1 btn_move_left" ng-show="userList.length > 1">
+        <span class="creat" ng-click="toBatchBind();">批量绑定</span>
+    </div>
+
+    <div class="user_role_selector" ng-show="showSelector">
+        <ul>
+            <li ng-repeat="r in allRole">
+                <input type="checkbox" ng-click="chooseRole($event, r);"
+                       ng-checked="r.checked" />
+                <span>{{r.roleName}}</span>
+            </li>
+        </ul>
+        <div class="index_btn1 btn_move_left ru_btn_box">
+            <span class="creat" ng-click="doBind();">确定</span>
+            <a ng-click="cancel();">取消</a>
+        </div>
+    </div>
+
+</div>

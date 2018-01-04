@@ -1,0 +1,57 @@
+<div class="index_con" >
+    <!--用户查询-->
+    <div class="index_list">
+        <div class="index_tit"><h6>版本信息查询</h6></div>
+        <ul class="list_ul list_ul_bor">
+            <li><span>工具名称：</span></li>
+            <li class="font_left">
+                    <span class="f1" ng-model ="tools.toolName" >{{tools.toolName }} </span>
+            </li>
+
+            <li><span>工具类型：</span></li>
+            <li class="font_left">
+                <span class="f1" ng-model ="tools.toolTypeId" >{{tools.toolTypeName}} </span>
+            </li>
+        </ul>
+    </div>
+    <!--搜索结果-->
+    <div class="index_list index_list_table">
+        <div class="index_tit">
+            <h6 class="fl">搜索结果</h6>
+        </div>
+        <!--<table class="table table-striped table-bordered table-hover">-->
+        <table class="table">
+            <!--<th >工具ID</th>-->
+            <th >版本</th>
+            <th>描述</th>
+            <th>备注</th>
+            <th>状态</th>
+            <th class="t_last t_last1">操作</th>
+
+            <tr ng-repeat="d in toolsList">
+                <!--<td ng-bind="d.toolsId"/></td>-->
+                <td ng-bind="d.version" ></td>
+                <td ng-bind="d.descript"></td>
+                <td ng-bind="d.remark"></td>
+                <td ng-bind="d.auditStatusName">></td>
+                <td class="t_last">
+                    <a ng-click="toolsView(d.id)">查看</a> <!--d.id 版本表中的主键id-->
+                    <a ng-show="d.canEdit" ng-click="toolsEdit(d.id)"> | 修改</a>
+                    <a ng-show="d.canAudit" ng-click="toolsAudit(d.id)"> | 审核</a>
+                    <a ng-show="d.canEdit" ng-click="toolsDel(d.id)"> | 删除</a>
+                </td>
+            </tr>
+        </table>
+        <div class="index_page">
+            <tm-pagination conf="paginationConf"></tm-pagination>
+        </div>
+
+    </div>
+
+    <!--按钮-->
+    <div class="index_btn1 btn_move_left">
+        <span class="creat" ng-click="toolsEdit('')">新增</span>
+        <span class="edit" ng-click="exit()">退 出</span>
+    </div>
+    <div data-ng-include ="'components/glean/tools/tpl/alertLayer.html'"></div>
+</div>

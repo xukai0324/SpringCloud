@@ -1,0 +1,98 @@
+<br/>
+<div class="container body">
+    <div class="index_list">
+        <!--<div class="index_tit"><h6>页面样式为何这么难调~~【问题分数：50分】</h6></div>-->
+        <div class="index_tit">
+            <h2>技术问题提问</h2>
+        </div>
+        <!--上方为外侧框框-->
+        <ul class="list_ul">
+            <!--此处为回答的个人信息-->
+            <div style="width:300px;float: left;">
+                <div class="col-xs-12 profile_details">
+                    <div class="well profile_view">
+                        <div class="col-sm-12">
+                            <h4 class="brief"><i>个人信息</i></h4>
+                            <div class="left col-xs-7">
+                                <table>
+                                    <tr>
+                                        <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                            <h2 ng-bind="myInfoDto.quesUserName"></h2>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                            <p><strong>部门: </strong><span ng-bind="myInfoDto.userDepartMent" style="color:#5A5AAD;"></span></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                            积分:<span ng-bind="myInfoDto.userMarkNum" style="color:#5A5AAD;"></span>
+                                        </td>
+                                        <td border="0" cellspacing="0" cellpadding="0" style="border:0;">
+                                            <i class="fa fa-database"></i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="right col-xs-5 text-center">
+                                <img src="images/user.jpg" alt="" class="img-circle img-responsive">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 bottom text-center">
+                            <div class="col-xs-12 col-sm-6 emphasis">
+                                <p class="ratings">
+                                    <a>4.0</a>
+                                    <a href="#"><span class="fa fa-star"></span></a>
+                                    <a href="#"><span class="fa fa-star"></span></a>
+                                    <a href="#"><span class="fa fa-star"></span></a>
+                                    <a href="#"><span class="fa fa-star"></span></a>
+                                    <a href="#"><span class="fa fa-star-o"></span></a>
+                                </p>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 emphasis">
+                                <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
+                                </i> <i class="fa fa-comments-o"></i>微信</button>
+                                <button type="button" class="btn btn-primary btn-xs">
+                                    <i class="fa fa-user"> </i> QQ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="width:650px;float: left;">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="index_list">
+                        <div class="index_tit"><h6>问题详情</h6></div>
+                        <ul class="list_ul list_ul_bor">
+                            <li><span>请输入问题标题：</span></li>
+                            <li>
+                                <input type="text" class="fl" ng-model="putQuesDto.pbTitle" maxlength="19">
+                            </li>
+                            <li><span>请输入问题分数：</span></li>
+                            <li>
+                                <input type="text" class="fl" ng-model="putQuesDto.pbScore" maxlength="19" value="0">
+                            </li>
+                            <li><span>问题类型：</span></li>
+                            <li>
+                                <select class="form-control" ng-options="x.codeCode as x.codeName for x in pbInfoDto" ng-model="putQuesDto.pbType">
+                                    <option value="">查询或选择...</option>
+                                </select>
+                            </li>
+                        </ul>
+
+                        <div class="x_title">
+                            <h2>请输入问题内容</h2>
+                        </div>
+                        <textarea style="resize:none;width:650px;height: 200px" ng-model="putQuesDto.pbContent"></textarea>
+                        <button type="submit" class="btn btn-success" ng-click="submitQues()">提交</button>
+                        <button class="btn btn-primary" type="reset" ng-click="resetQues()">重置</button>
+                    </div>
+            </div>
+            <!--<div class="ueditor" ng-model="content"></div>-->
+        </ul>
+
+    </div>
+</div>

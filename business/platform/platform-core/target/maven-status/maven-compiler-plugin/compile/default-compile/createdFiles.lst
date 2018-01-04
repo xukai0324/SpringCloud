@@ -1,0 +1,7 @@
+com\xk\user\service\UserService.class
+com\xk\user\entity\UserExample.class
+com\xk\user\entity\User.class
+com\xk\user\entity\UserExample$GeneratedCriteria.class
+com\xk\user\entity\UserExample$Criterion.class
+com\xk\user\entity\UserExample$Criteria.class
+com\xk\user\dao\UserMapper.class

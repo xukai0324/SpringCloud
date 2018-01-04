@@ -1,0 +1,26 @@
+myauth:
+  eureka: #自定义用户密码，下面注册中心地址会用到
+    username: xk
+    password: xk123
+eureka:
+  client:
+    registry-fetch-interval-seconds: 10 #默认30秒
+    service-url:
+      defaultZone: http://${myauth.eureka.username}:${myauth.eureka.password}@localhost:16001/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 10 #心跳时间
+    lease-expiration-duration-in-seconds: 30 #发呆时间
+    prefer-ip-address: true
+spring:
+  cloud:
+    config:
+      name: ${spring.application.name}
+      profile: dev
+      #uri: http://localhost:16002
+      username: ${myauth.eureka.username}
+      password: ${myauth.eureka.password}
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      fail-fast: true
+      enabled: true

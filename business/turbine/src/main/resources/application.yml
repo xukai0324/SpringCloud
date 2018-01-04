@@ -14,7 +14,7 @@ turbine:
   aggregator:
     clusterConfig: default
   app-config: platform,durian
-  cluster-name-expression: "'default'"
+  cluster-name-expression: new String("default")
 eureka:
   client:
     service-url:

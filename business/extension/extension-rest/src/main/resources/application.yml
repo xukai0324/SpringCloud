@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: extension
+server:
+  port: 16012

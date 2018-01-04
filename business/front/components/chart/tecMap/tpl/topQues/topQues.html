@@ -1,0 +1,36 @@
+ <div class="row">
+  <!-- Start to do list -->
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2> <i class="fa fa-star"></i>热门问题</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <div class="">
+         <table class="countries_list">
+          <thead>
+            <tr>
+             <td>问题</td>
+             <td>分数</td>
+             <td>状态</td>
+             <td>回复数</td>
+             <td>时间</td>
+           </tr>
+         </thead>
+          <tbody>
+            <tr ng-repeat="topQuesInfo in topQuesData">
+             <td><a ng-click="showDetail(topQuesInfo.id)">{{topQuesInfo.pbTitle}}</a></td>
+             <td>{{topQuesInfo.pbScore}}<small>分</small></td>
+             <td>{{topQuesInfo.pbState}}</td>
+             <td style='color:red'>{{topQuesInfo.replyNum}}</td>
+             <td><small>{{topQuesInfo.createTime | date:'yyyy年MM月dd HH时mm分' }}</small></td>
+           </tr>
+         </tbody>
+       </table>
+     </ul>
+   </div>
+ </div>
+</div>
+</div>
+</div>

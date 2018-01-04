@@ -1,0 +1,28 @@
+<div class="main" ng-controller="mainCtrl">
+    <!--<h1>AngularJS Home Page (Ui-router Demonstration)</h1>-->
+    <div data-sino-overlay>
+        <br/><img src="images/loading_small.gif" />   Loading
+    </div>
+    <!--主界面区域头-->
+    <div ng-show="true">
+        <div data-ng-include="'frame/header/header.tpl.html'"></div>
+    </div>
+    <div ng-show="true">
+        <div class="container-fluid main_con" id="test">
+            <div class="row main_content_bg">
+                <!--菜单区域-->
+                <div class="main_left" ng-class="{true:'main_left_wid',false:'main_left'}[leftFlag]" ng-mouseover="mouseenter()" ng-mouseleave="mouseleave()"  ng-controller="MenuCtrl" data-ng-include="'frame/menu/menu.tpl.html'"></div>
+                <!--内容区域-->
+                <div class="main_right" ng-class="{true:'main_right_col',false:'main_right'}[rightFlag]">
+                    <div ng-class="{true:'index_local',false:'hide_comm'}[showMainNagiv]" data-ng-include="'frame/navigation/navigation.tpl.html'"></div>
+                    <div ui-view=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--主界面区域尾-->
+    <div ng-show="false">
+        <div data-ng-include="'frame/footer/footer.tpl.html'"></div>
+    </div>
+</div>
+</div>

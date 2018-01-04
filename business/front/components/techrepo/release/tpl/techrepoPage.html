@@ -1,0 +1,70 @@
+
+<div class="col-md-12 col-sm-12 col-xs-12">   <!-- 技术资源 -->
+    <div class="index_list">
+        <div class="index_tit"><h6>查询</h6></div>
+        <ul class="list_ul list_ul_bor">
+            <li><span>名称：</span></li>
+            <li><input      ng-model="techrepoQueryCondition.name" type="text" class="fl" ></li>
+            <li><span>类型：</span></li>
+            <li><code-type  ng-model='techrepoQueryCondition.type'  class="seletc_bor" base-code="component_label" is-fuzzy="true"></code-type></li>
+            <!--
+            <li><span>期望完成日期：</span></li>
+            <li><input      ng-model="techrepoQueryCondition.expectDate" type="text" id="endDate" jedate  format="YYYY-MM-DD" class="date-input fl date" readonly /></li>
+            <li><span>状态：</span></li>
+            <li><code-type  ng-model='techrepoQueryCondition.status' class="seletc_bor" base-code="techrepoLevel" is-fuzzy="true"></code-type></li>
+            -->
+        </ul>
+        <div class="pending_btn">
+            <div class="pending_btn1">
+                <span class="a_search" ng-click="techrepoPageQuery()">搜索</span>
+                <span class="a_reset" ng-click="techrepoPageReset()">重置</span>
+            </div>
+        </div>
+    </div>
+    <div class="x_panel">
+    <div class="x_content">
+        <div class="table-responsive">
+            <div class="index_list index_list_table">
+                <div class="index_tit">
+                    <h6 class="fl">技术资源</h6>
+                </div>
+            <table class="table">
+                <tr class="headings">
+                    <th class="column-title">名称 </th>
+                    <th class="column-title">类型</th>
+                    <th class="column-title">特点</th>
+                    <!--<th class="column-title">适用于</th>-->
+                    <th class="column-title">更新内容</th>
+                    <th class="column-title">更新时间</th>
+                    <th class="column-title">操作</th>
+                    <!--15-->
+                </tr>
+                <tr class="even pointer" ng-repeat="d in techrepoListData">
+                    <td ng-bind="d.name"></td>
+                    <td ng-bind="d.typeZhName"></td>
+                    <td ng-bind="d.feature"></td>
+                    <!--<td ng-bind="d.applyTo"></td>-->
+                    <td ng-bind="d.updateFor"></td>
+                    <td ng-bind="d.updateTime | date:'yyyy-MM-dd'"></td>
+                    <td class="t_last">
+                        <a ng-click="techrepoView(d.id)">查看</a>
+                        <a ng-click="techrepoEdit(d.id)"> | 修改</a>
+                        <!--<a ng-click="techrepoSchedule(d.id)"> | 查看进度</a>-->
+                        <!--<a ng-click="techrepoDel(d.id)"> | 删除</a>-->
+                    </td>
+                </tr>
+            </table>
+            <div class="index_page">
+                <tm-pagination conf="paginationConf"></tm-pagination>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--按钮-->
+    <div class="index_btn1 btn_move_left">
+        <span class="creat" ng-click="techrepoAdd()">新增</span>
+        <span class="edit" ng-click="exit()">退 出</span>
+    </div>
+    <div data-ng-include ="'components/techrepo/release/tpl/alertLayer.html'"></div>
+</div>

@@ -1,0 +1,47 @@
+<!--菜单维护-->
+<div class="index_con produce_center">
+    <div class="index_list" >
+        <div class="index_tit"><h6>框架编辑</h6></div>
+            <ng-form name="frameworkSaveForm">
+                <ul class="list_ul">
+                    <li><span>框架名称：</span></li>
+                    <li><input mc-placeholder="需要1~20位字符组成" type="text" class="fl" ng-model="gleanFrameworkInfoDto.frameworkName" required ng-pattern="{{namePattern}}"  warn-text="{ErrPattern:'需要1~20位字符组成'}" maxlength="20" /></li>
+
+                    <li class="clear_both">
+                        <span>框架描述：</span>
+                    </li>
+                    <li>
+                        <input type="text"  value="" ng-model="gleanFrameworkInfoDto.frameworkDescribe" width="200px" maxlength="200" ng-maxlength="200"/>
+                    </li>
+
+                    </ul>
+
+               
+                <div class="row">
+				  <div class="col-sm-6 col-md-5">
+				    <div class="thumbnail">
+				      <div>
+				        <div class="index_list"><h2>组件信息 <span class="btn pull-right"  ng-click="addComponent()">调整</span></h2></div>
+	                    <div class="index_list" >
+		                	<dl class="dl-horizontal" >
+			            		<dt>组件名称</dt>
+			            	</dl>
+		                    <dl class="dl-horizontal" ng-repeat="componentDto in gleanFrameworkInfoDto.gleanFrameworkComponentDtos" ng-click="delComponent($index)">
+						      <dt>{{componentDto.componentName}}</dt>
+						    </dl>
+		                </div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+                
+                    <!--按钮-->
+                <div class="index_btn1">
+                    <button  class="submit" ng-disabled="menuSaveDisableFlag" ng-click="frameworkSave()">确 定</button>
+                    <span class="edit" ng-click="exit()">退 出</span>
+                </div>
+            </ng-form>
+    </div>
+    <div data-ng-include ="'components/glean/framework/tpl/frameworkAlertLayer.html'"></div>
+    <div data-ng-include ="'components/glean/framework/tpl/frameworkComponentsLayer.html'"></div>
+</div>

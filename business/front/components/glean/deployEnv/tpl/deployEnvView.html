@@ -1,0 +1,99 @@
+<!--菜单查看-->
+<div class="index_con produce_center">
+    <div class="index_list" >
+        <div class="index_tit"><h6>部署环境详情页</h6></div>
+            <ul class="list_ul">
+                <li><span>所属项目：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.projectName" >{{deployEnv.projectName}} </span>
+                </li>
+
+                <li><span>操作系统名称：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.serverName" >{{deployEnv.serverName}} </span>
+                </li>
+
+                <li><span>操作系统版本：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.serverVersion" >{{deployEnv.serverVersion}} </span>
+                </li>
+
+                <li><span>运行环境类型：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.serverTypeName" >{{deployEnv.serverTypeName}} </span>
+                </li>
+
+                <li><span>cpu：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.cpuInfo" >{{deployEnv.cpuInfo}} </span>
+                </li>
+
+                <li><span>内存：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.memory" >{{deployEnv.memory}} </span>
+                </li>
+
+                <li><span>磁盘：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.disk" >{{deployEnv.disk}} </span>
+                </li>
+
+                <li><span>中间件名称：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.softwareName" >{{deployEnv.softwareName}} </span>
+                </li>
+
+                <li><span>中间件版本：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.softwareVersion" >{{deployEnv.softwareVersion}} </span>
+                </li>
+
+                <li><span>中间件类型：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.softwareType" >{{deployEnv.softwareType}} </span>
+                </li>
+
+                <li><span>是否容器化：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.isDocker" >
+                        <div ng-if="deployEnv.isDocker=='1'">是</div>
+                        <div ng-if="deployEnv.isDocker=='0'">否</div>
+                    </span>
+                </li>
+
+                <li><span>容器工具：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.dockerTools" >{{deployEnv.dockerTools}} </span>
+                </li>
+
+                <li><span>初始堆大小（-Xms）：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.initHeapSize" >{{deployEnv.initHeapSize}} </span>
+                </li>
+
+                <li><span>最小堆大小（-Xms）：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.minHeapSize" >{{deployEnv.minHeapSize}} </span>
+                </li>
+
+                <li><span>持久代初始值（-XX:PermSize）：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.permSize" >{{deployEnv.permSize}} </span>
+                </li>
+
+                <li><span>最大堆大小（-Xmx）：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.maxHeapSize" >{{deployEnv.maxHeapSize}} </span>
+                </li>
+
+                <li><span>其他参数或备注：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="deployEnv.otherParameter" >{{deployEnv.otherParameter}} </span>
+                </li>
+            </ul>
+            <!--按钮-->
+            <div class="index_btn1">
+                <span class="submit" ng-click="exit()">退 出</span>
+            </div>
+    </div>
+</div>

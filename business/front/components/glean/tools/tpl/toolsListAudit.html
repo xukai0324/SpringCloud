@@ -1,0 +1,72 @@
+
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="index_list">
+		<div class="index_tit">
+			<h6>查询</h6>
+		</div>
+		<ul class="list_ul list_ul_bor">
+			<li><span>工具名称：</span></li>
+			<li><input type="text" class="fl"
+				ng-model="toolsQueryCondition.toolName"></li>
+			<li><span>审核状态：</span></li>
+			<li><code-type class="seletc_bor" base-code="auditStatus"
+					ng-model='toolsQueryCondition.auditStatus' ng-disabled="false"
+					is-fuzzy="true"></code-type></li>
+			<li><span>创建人：</span></li>
+			<li><input type="text" class="fl"
+				ng-model="toolsQueryCondition.createBy"></li>
+			<li><span>版本：</span></li>
+			<li><input type="text" class="fl" ng-model="toolsQueryCondition.version"></li>
+		</ul>
+		<div class="pending_btn">
+			<div class="pending_btn1">
+				<span class="a_search" ng-click="toolsPageQuery()">搜索</span> <span
+					class="a_reset" ng-click="toolsPageReset()">重置</span>
+			</div>
+		</div>
+	</div>
+	<div class="x_panel">
+		<div class="x_content">
+			<div class="table-responsive">
+				<div class="index_list index_list_table">
+					<div class="index_tit">
+						<h6 class="fl">搜索结果</h6>
+					</div>
+					<table class="table">
+						<tr class="headings">
+                            <th class="column-title">全部选择<input type="checkbox" ng-change="selectAll()" ng-model="select_all"></th>
+							<th class="column-title">工具名称</th>
+							<th class="column-title">类型</th>
+							<th class="column-title">版本</th>
+							<th class="column-title">描述</th>
+							<th class="column-title">审核状态</th>
+							<th class="column-title">操作</th>
+							<!--15-->
+						</tr>
+						<tr class="even pointer" ng-repeat="d in toolsList">
+							<td><input type="checkbox" ng-model="d.isChecked" ng-change="selectOne()"></td>
+							<td ng-bind="d.gleanToolsInfoDto.toolName"></td>
+							<td ng-bind="d.gleanToolsInfoDto.toolTypeName"></td>
+							<td ng-bind="d.version"></td>
+							<td ng-bind="d.descript"></td>
+							<td ng-bind="d.auditStatusName"></td>
+							<td class="t_last"><a ng-click="toolsView(d.id,d.toolsId)">查看</a> <a
+								ng-show="d.canEdit" ng-click="toolsEdit(d.toolsId,d.id)"> | 修改</a> <a
+								ng-show="d.canAudit" ng-click="toolsAudit(d.id,d.toolsId)"> | 审核</a> <a
+								ng-show="d.canEdit" ng-click="toolsDel(d.id)"> | 删除</a></td>
+						</tr>
+					</table>
+					<div class="index_page">
+						<tm-pagination conf="paginationConf"></tm-pagination>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--按钮-->
+	<div class="index_btn1 btn_move_left">
+		<span class="creat" ng-show="auditPower" ng-click="batchAudit('1')">批量审核通过</span>
+		<span class="edit"	ng-click="exit()">退 出</span>
+	</div>
+	<div data-ng-include="'components/glean/tools/tpl/alertLayer.html'"></div>

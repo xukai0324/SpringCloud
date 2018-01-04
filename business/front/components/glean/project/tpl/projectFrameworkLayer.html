@@ -1,0 +1,41 @@
+<div ng-show="addFrameworkLayer">
+    <div class="mask"></div>
+    <div class="revise_insurant" style="height:100%;">
+        <ng-form novalidate="novalidate" name="insuredForm">
+            <div class="remove_header">
+                <span>框架列表</span>
+                <a href="javascript:void(0)" ng-click="addhideInsure()"><i></i></a>
+            </div>
+            <div class="layerOver view" style="position:center;height: 100%; position: absolute; width: 100%; box-sizing: border-box; overflow-y: auto; padding-top: 37px;top: 0; z-index: -1;" >
+               <div class="clearfix" >
+               	  	<div class=" col-md-8 column ui-sortable">
+               	  		<table class="table" style="marginL:auto;">
+               	  			<tr class="headings" >
+               	  				<td class="col-md-4" style="vertical-align: middle;border:1px solid #ddd;">框架名称</td>
+               	  				<td class="col-md-6" style="vertical-align: middle;border:1px solid #ddd;">框架描述</td>
+               	  				<td class="col-md-2" style="vertical-align: middle;border:1px solid #ddd;">操作</td>
+               	  			</tr>
+               	  			<tr class="headings" ng-repeat="framework in allFrameworks">
+               	  				<td class="col-md-4" style="vertical-align: middle;border:1px solid #ddd;">{{framework.frameworkName}}</td>
+               	  				<td class="col-md-6" style="vertical-align: middle;border:1px solid #ddd;">{{framework.frameworkDescribe}}</td>
+               	  				<td class="col-md-2" style="vertical-align: middle;border:1px solid #ddd;"><button class="config_button" ng-click="choseframework($index)">选择框架</button></td>
+               	  			</tr>
+               	  			<tfoot>
+               	  				<tr>
+               	  					<td class="col-md-12" colspan="3" style="vertical-align: middle;border:1px solid #ddd;">
+               	  						<div class="index_page">
+									            <tm-pagination conf="paginationConfFrameworks"></tm-pagination>
+									        </div>
+							            <div class="config_button">
+							                <button ng-click="delFramework()">取消选择</button><!-- ng-class="{'ngdisable':buttonSure}" ng-disabled="buttonSure"-->
+							            </div>
+               	  					</td>
+               	  				</tr>
+               	  			</tfoot>
+               	  		</table	>
+		            </div>
+            	</div>
+	        </div>
+        </ng-form>
+    </div>
+</div>

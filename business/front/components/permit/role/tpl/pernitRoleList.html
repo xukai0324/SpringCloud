@@ -1,0 +1,46 @@
+<div class="index_con" >
+    <!--菜单列表-->
+   	<div class="index_list">
+        <div class="index_tit"><h6>菜单查询</h6></div>
+        <ul class="list_ul list_ul_bor">
+            <li><span>名称：</span></li>
+            <li><input type="text" class="fl" ng-model="roleListCondition.roleName"></li>
+             <li><span>编号：</span></li>
+            <li><input type="text" class="fl" ng-model="roleListCondition.roleCode"></li>
+        </ul>
+        <div class="pending_btn">
+            <div class="pending_btn1">
+                <span class="a_search" ng-click="getRoleList()">搜索</span>
+                <span class="a_reset" ng-click="rolePageReset()">重置</span>
+            </div>
+        </div>
+    </div>
+
+        <div class="index_list index_list_table">
+            <div class="index_tit">
+                <h6 class="fl">查询结果</h6>
+            </div>
+            <table class="table">
+                <th>角色编号</th>
+                <th>角色名称</th>
+                <th>操作</th>
+                <tr ng-repeat="r in roleList">
+                    <td ng-bind="r.roleCode"></td>
+                    <td ng-bind="r.roleName"></td>
+                    <td class="t_last">
+                        <a ng-click="toDetail(r.id, 1);">查看</a>
+                        <a ng-click="toDetail(r.id, 0);"> | 修改</a>
+                        <a ng-click="deleteRole(r.id);"> | 删除</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="index_page">
+                <tm-pagination conf="paginationConf"></tm-pagination>
+            </div>
+        </div>
+        <!--按钮-->
+        <div class="index_btn1 btn_move_left">
+            <span class="creat" ng-click="toDetail('-1', 0);">新增角色</span>
+        </div>
+    </div>
+</div>

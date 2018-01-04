@@ -1,0 +1,32 @@
+<!--菜单查看-->
+<div class="index_con produce_center">
+    <div class="index_list" >
+        <div class="index_tit"><h6>查看</h6></div>
+            <ul class="list_ul">
+                <li><span>代码类型：</span></li>
+                <li class="font_left">
+                    <span class="hidden" ng-model="typeDesc" >{{typeDesc}} </span>
+                    <span class="f1" ng-model ="infogaterCode.codeType" >{{infogaterCode.codeType}} </span>
+                </li>
+
+                <li><span>业务代码：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="infogaterCode.codeCode" >{{infogaterCode.codeCode}} </span>
+                </li>
+
+                <li><span>代码含义：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="infogaterCode.codeName" >{{infogaterCode.codeName}} </span>
+                </li>
+
+                <li><span>父级代码：</span></li>
+                <li class="font_left">
+                    <span class="f1" ng-model ="infogaterCode.upperCode" >{{infogaterCode.upperCode}} </span>
+                </li>
+            </ul>
+            <!--按钮-->
+            <div class="index_btn1">
+                <span class="submit" ng-click="exit()">退 出</span>
+            </div>
+    </div>
+</div>

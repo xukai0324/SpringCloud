@@ -1,0 +1,22 @@
+<!--菜单维护-->
+<div class="index_con produce_center">
+    <div class="index_list" >
+        <div class="index_tit"><h6>代码信息维护</h6></div>
+        <ng-form name="menuSaveForm">
+            <ul class="list_ul">
+                <li><span>代码类型：</span></li>
+                <li><input type="text" class="fl" ng-model="infogaterType.codeType"  maxlength="20" /></li>
+
+                <li><span>类型描述：</span></li>
+                <li><input type="text" class="fl"  ng-model="infogaterType.codeTypeDesc"  maxlength="20" /></li>
+
+            </ul>
+            <!--按钮-->
+            <div class="index_btn1">
+                <button  class="submit" ng-disabled="menuSaveDisableFlag" ng-click="saveInfogaterType()">确 定</button>
+                <span class="edit" ng-click="exit()">退 出</span>
+            </div>
+        </ng-form>
+    </div>
+    <div data-ng-include ="'components/infogater/infogaterType/tpl/alertLayer.html'"></div>
+</div>
