@@ -19,13 +19,15 @@ public class TestController {
     private RabbitTemplate rabbitTemplate;
 
     @RequestMapping("value")
-    public void value(String name){
+    public String value(String name){
         rabbitTemplate.convertAndSend(RabbitmqExchange.CONTRACT_DIRECT, RabbitmqQueue.CONTRACE_TENANT,name);
+        return "success";
     }
 
     @RequestMapping("test")
-    public void test(String name){
+    public String test(String name){
         rabbitTemplate.convertAndSend(RabbitmqExchange.CONTRACT_TOPIC,RabbitmqQueue.CONTRACE_SELF,name);
+        return "success";
     }
 
 }
