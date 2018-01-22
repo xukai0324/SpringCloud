@@ -18,11 +18,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.xk</groupId>
             <artifactId>extension-api</artifactId>
             <version>${business-version}</version>
