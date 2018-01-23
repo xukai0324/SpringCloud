@@ -16,3 +16,6 @@ spring:
 mybatis:
   typeAliasesPackage: com.xk.platform.**.entity
   mapperLocations: classpath:mapper/**/*.xml
+private:
+  test:
+    name: rose
